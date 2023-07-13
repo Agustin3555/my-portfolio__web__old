@@ -1,0 +1,328 @@
+{
+  "pageTitle": {
+    "base": "Agustín Lovera",
+    "separator": "·"
+  },
+  "externalNetwork": [
+    {
+      "iconName": "fa-brands fa-linkedin",
+      "url": "https://www.linkedin.com/in/agust%C3%ADn-lovera-b27528212/",
+      "title": "LinkedIn"
+    },
+    {
+      "iconName": "fa-brands fa-github",
+      "url": "https://github.com/Agustin3555",
+      "title": "GitHub"
+    },
+    {
+      "iconName": "fa-brands fa-instagram",
+      "url": "https://www.instagram.com/agustin_lovera2",
+      "title": "Instagram"
+    }
+  ],
+  "metalCuriosities": {
+    "interval": 1.5,
+    "volume": 0.05,
+    "curiosities": [
+      "I'm a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible.",
+      "Por cierto, mi amo vive en Argentina pero no en su capital, en una ciudad del hacia el norte, de ahi su acento particular.",
+      "C",
+      "D",
+      "E Holaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "meows": ["cat-meow-1.wav", "cat-meow-2.wav", "cat-meow-3.wav"]
+  },
+  "pages": {
+    "home": {
+      "sections": {
+        "about": {
+          "buttonTitle": "Sobre mí",
+          "data": {
+            "presentation": [
+              "Hola, mi nombre es",
+              "Juan Agustín Lovera,",
+              "Full Stack Web Dev.",
+              "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta. Disfruto creando proyectos innovadores para aplicar mis conocimientos. Aunque tengo poca experiencia en el mundo laboral, estoy emocionado por enfrentar el desafío de trabajar en equipo y poner en práctica todas mis habilidades de manera profesional."
+            ],
+            "extraPresentationSlider": {
+              "myself": {
+                "description": "He trabajado en proyectos complejos y tengo un conocimiento profundo del lenguaje / tecnología, incluyendo características avanzadas y mejores prácticas."
+              },
+              "logo": {
+                "description": "He tomado cursos o tengo conocimientos básicos del lenguaje / tecnología, pero aún no he tenido experiencia práctica considerable."
+              },
+              "metal": {
+                "description": "He trabajado en proyectos pequeños utilizando el lenguaje / tecnología y tengo un conocimiento intermedio de las características del mismo."
+              }
+            }
+          }
+        },
+        "skills": {
+          "buttonTitle": "Habilidades",
+          "title": "Habilidades",
+          "subsections": {
+            "technologies": {
+              "data": [
+                {
+                  "names": ["C#"],
+                  "icons": [
+                    {
+                      "fileName": "logo-csharp.svg"
+                    }
+                  ],
+                  "skillLevel": 1,
+                  "technologies": [
+                    {
+                      "names": ["Windows Forms"],
+                      "icons": [
+                        {
+                          "fileName": "logo-winforms.png"
+                        }
+                      ],
+                      "skillLevel": 1
+                    }
+                  ]
+                },
+                {
+                  "names": ["Java"],
+                  "icons": [
+                    {
+                      "fileName": "logo-java.svg",
+                      "invertInDarkMode": true
+                    }
+                  ],
+                  "skillLevel": 0
+                },
+                {
+                  "names": ["PHP"],
+                  "icons": [
+                    {
+                      "fileName": "logo-php.svg"
+                    }
+                  ],
+                  "skillLevel": 0,
+                  "technologies": [
+                    {
+                      "names": ["Laravel"],
+                      "icons": [
+                        {
+                          "fileName": "logo-laravel.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 1
+                    }
+                  ]
+                },
+                {
+                  "names": ["Python"],
+                  "icons": [
+                    {
+                      "fileName": "logo-python.svg"
+                    }
+                  ],
+                  "skillLevel": 0,
+                  "technologies": [
+                    {
+                      "names": ["Django"],
+                      "icons": [
+                        {
+                          "fileName": "logo-django.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 0
+                    }
+                  ]
+                },
+                {
+                  "names": ["HTML"],
+                  "icons": [
+                    {
+                      "fileName": "logo-html-5.svg"
+                    }
+                  ],
+                  "skillLevel": 1
+                },
+                {
+                  "names": ["CSS"],
+                  "icons": [
+                    {
+                      "fileName": "logo-css-3.svg"
+                    }
+                  ],
+                  "skillLevel": 1,
+                  "technologies": [
+                    {
+                      "names": ["Sass"],
+                      "icons": [
+                        {
+                          "fileName": "logo-sass.svg"
+                        }
+                      ],
+                      "skillLevel": 0
+                    }
+                  ]
+                },
+                {
+                  "names": ["JavaScript", "TypeScript"],
+                  "icons": [
+                    {
+                      "fileName": "logo-javascript.svg"
+                    },
+                    {
+                      "fileName": "logo-typescript.svg"
+                    }
+                  ],
+                  "skillLevel": 2,
+                  "technologies": [
+                    {
+                      "names": ["React"],
+                      "icons": [
+                        {
+                          "fileName": "react.svg"
+                        }
+                      ],
+                      "skillLevel": 1,
+                      "technologies": [
+                        {
+                          "names": ["styled-components"],
+                          "icons": [
+                            {
+                              "fileName": "logo-styled-components.png"
+                            }
+                          ],
+                          "skillLevel": 2
+                        },
+                        {
+                          "names": ["Redux"],
+                          "icons": [
+                            {
+                              "fileName": "logo-redux.svg",
+                              "invertInDarkMode": true
+                            }
+                          ],
+                          "skillLevel": 0
+                        }
+                      ]
+                    },
+                    {
+                      "names": ["Express"],
+                      "icons": [
+                        {
+                          "fileName": "logo-express-js.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["Nest"],
+                      "icons": [
+                        {
+                          "fileName": "logo-nest-js.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 0
+                    },
+                    {
+                      "names": ["RxJS"],
+                      "icons": [
+                        {
+                          "fileName": "logo-rxjs.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 0
+                    }
+                  ]
+                },
+                {
+                  "names": ["SQL"],
+                  "icons": [
+                    {
+                      "fileName": "logo-sql-26.png"
+                    }
+                  ],
+                  "skillLevel": 1,
+                  "technologies": [
+                    {
+                      "names": ["SQLite"],
+                      "icons": [
+                        {
+                          "fileName": "logo-sqlite.png",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 0
+                    },
+                    {
+                      "names": ["Microsoft SQL Server"],
+                      "icons": [
+                        {
+                          "fileName": "logo-microsoft-sql-server.svg"
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["PostgreSQL"],
+                      "icons": [
+                        {
+                          "fileName": "logo-postgresql.svg"
+                        }
+                      ],
+                      "skillLevel": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            "levels": {
+              "title": "Niveles",
+              "data": [
+                {
+                  "level": "Principiante",
+                  "description": "He tomado cursos o tengo conocimientos básicos del lenguaje / tecnología, pero aún no he tenido experiencia práctica considerable."
+                },
+                {
+                  "level": "Intermedio",
+                  "description": "He trabajado en proyectos pequeños utilizando el lenguaje / tecnología y tengo un conocimiento intermedio de las características del mismo."
+                },
+                {
+                  "level": "Avanzado",
+                  "description": "He trabajado en proyectos complejos y tengo un conocimiento profundo del lenguaje / tecnología, incluyendo características avanzadas y mejores prácticas."
+                }
+              ]
+            }
+          }
+        },
+        "work": {
+          "buttonTitle": "Trabajos"
+        },
+        "experience": {
+          "buttonTitle": "Experiencia"
+        },
+        "contact": {
+          "buttonTitle": "Contáctame"
+        }
+      }
+    },
+    "resume": {
+      "buttonTitle": "Currículum",
+      "pageTitle": "Currículum",
+      "data": {}
+    },
+    "notFound": {
+      "pageTitle": "Página no encontrada",
+      "data": {
+        "description": [
+          "Error 404,",
+          "página no encontrada",
+          "Creo que no es el programador que buscas."
+        ]
+      }
+    }
+  }
+}
