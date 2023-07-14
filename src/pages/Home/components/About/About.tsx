@@ -50,7 +50,7 @@ const About = () => {
             <h1 className="name --movable">{presentation[1]}</h1>
             <h2 className="rol --movable">{presentation[2]}</h2>
           </div>
-          <p className="summary --movable">{presentation[3]}</p>
+          <p className="summary text --movable">{presentation[3]}</p>
           {/*
             TODO: hacer que destaque mi nivel cambiando de color la palabra.
             Ej: ...actualmente las empresas me consideran **junior**...

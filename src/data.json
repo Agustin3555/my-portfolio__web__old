@@ -299,13 +299,16 @@
           }
         },
         "work": {
-          "buttonTitle": "Trabajos"
+          "buttonTitle": "Trabajos",
+          "title": "Trabajos"
         },
         "experience": {
-          "buttonTitle": "Experiencia"
+          "buttonTitle": "Experiencia",
+          "title": "Experiencia"
         },
         "contact": {
-          "buttonTitle": "Contáctame"
+          "buttonTitle": "Contáctame",
+          "title": "Contáctame"
         }
       }
     },

@@ -1,6 +1,6 @@
-import { sliderStyleAdapter, StylizedSlider } from './Slider.styled'
+import * as SliderStyled from './Slider.styled'
 import { useDarkMode, useData } from '@/hooks'
-import { GlassPanel, Icon, LBox } from '@/components'
+import { AnimateState, GlassPanel, Icon, LBox } from '@/components'
 import { useCallback, useMemo, useState } from 'react'
 import myself from '@/assets/myself.jpg'
 import logo from '@/assets/logo.png'
@@ -53,29 +53,28 @@ export const Slider = () => {
   )
 
   return (
-    <StylizedSlider p={sliderStyleAdapter(darkMode, item)}>
-      <div className="box-1">
-        <LBox style={{ size: NOT_FONT_SIZE.xl, backgroundColor: COLOR.a }} />
-      </div>
-      <div className="description">
-        <GlassPanel style={{ borderRadius: NOT_FONT_SIZE.s, elevation: 2 }}>
-          <SwitchTransition>
-            <CSSTransition
-              key={item}
-              classNames="fade"
-              addEndListener={(node, done) =>
-                node.addEventListener('transitionend', done, false)
-              }
-            >
-              <div className="container">{items[item].description}</div>
-            </CSSTransition>
-          </SwitchTransition>
-        </GlassPanel>
-      </div>
-      <div className="box-2">
-        <LBox style={{ size: NOT_FONT_SIZE['2xl'], backgroundColor: COLOR.b }} />
-      </div>
-      <div className="item-container">
+    <SliderStyled.Component p={SliderStyled.adapter(darkMode)}>
+      <LBox
+        handlingClass="red-box"
+        style={{ size: NOT_FONT_SIZE.xl, backgroundColor: COLOR.a }}
+      />
+      <GlassPanel
+        handlingClass="glass-description"
+        style={{
+          padding: NOT_FONT_SIZE.s,
+          borderRadius: NOT_FONT_SIZE.s,
+          elevation: 2,
+        }}
+      >
+        <AnimateState state={String(item)}>
+          <p className="description text">{items[item].description}</p>
+        </AnimateState>
+      </GlassPanel>
+      <LBox
+        handlingClass="blue-box"
+        style={{ size: NOT_FONT_SIZE['2xl'], backgroundColor: COLOR.b }}
+      />
+      <div className="slider">
         <SwitchTransition mode="in-out">
           <CSSTransition
             key={item}
@@ -89,39 +88,33 @@ export const Slider = () => {
           </CSSTransition>
         </SwitchTransition>
         <button
-          className="hidden-button left"
-          onClick={changing ? undefined : navLeftButtonHandlerClick}
-        />
-        <button
-          className="hidden-button right"
-          onClick={changing ? undefined : navRightButtonHandlerClick}
-        />
-      </div>
-      <div className="controls">
-        <button
-          className="nav-button"
+          className="control-button left"
+          title="Retroceder"
           onClick={changing ? undefined : navLeftButtonHandlerClick}
         >
-          <Icon iconName="fa-solid fa-chevron-left" style={{ size: FONT_SIZE.s }} />
+          <Icon
+            handlingClass="icon"
+            iconName="fa-solid fa-chevron-left"
+            style={{ size: FONT_SIZE.m }}
+          />
         </button>
-        <div className="nav">
-          {items.map((item, index) => (
-            <button
-              className="indicator-button"
-              key={index}
-              onClick={
-                changing ? undefined : () => setItemWrapped(() => setItem(index))
-              }
-            />
-          ))}
-        </div>
         <button
-          className="nav-button"
+          className="control-button right"
+          title="Avanzar"
           onClick={changing ? undefined : navRightButtonHandlerClick}
         >
-          <Icon iconName="fa-solid fa-chevron-right" style={{ size: FONT_SIZE.s }} />
+          <Icon
+            handlingClass="icon"
+            iconName="fa-solid fa-chevron-right"
+            style={{ size: FONT_SIZE.m }}
+          />
         </button>
       </div>
-    </StylizedSlider>
+      <div className="indicators">
+        {items.map((_, index) => (
+          <div className="item" key={index} data-activated={index === item} />
+        ))}
+      </div>
+    </SliderStyled.Component>
   )
 }

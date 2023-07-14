@@ -54,7 +54,7 @@ export namespace GlobalStyleStyled {
 
       body * {
         font-size: ${FONT_SIZE.s};
-        line-height: ${FONT_SIZE.s};
+        line-height: 1;
         letter-spacing: calc(${NOT_FONT_SIZE['6xs']} * 0.333);
         word-spacing: ${NOT_FONT_SIZE['6xs']};
 

@@ -50,9 +50,10 @@ const cp: ConstProvider = {
 export const Component = styled.div`
   display: flex;
   gap: ${NOT_FONT_SIZE.xl};
+  align-items: center;
 
-  @media (max-width: 80rem) {
-    flex-wrap: wrap;
+  @media (max-width: 98.4375rem) {
+    flex-direction: column;
   }
 
   .description {
@@ -85,7 +86,7 @@ export const Component = styled.div`
         margin-bottom: ${NOT_FONT_SIZE.xs};
         font-family: ${FONT.s};
         font-size: ${FONT_SIZE['2xl']};
-        line-height: calc(${FONT_SIZE['2xl']} * 1.25);
+        line-height: 1.25;
         word-spacing: initial;
         color: ${cp.description.titleGroup.name.color};
       }
@@ -95,7 +96,6 @@ export const Component = styled.div`
 
         font-family: ${FONT.s};
         font-size: ${FONT_SIZE.l};
-        line-height: ${FONT_SIZE.l};
         word-spacing: initial;
         color: ${COLOR.b};
       }
@@ -103,8 +103,6 @@ export const Component = styled.div`
 
     .summary {
       --movable-i: 3;
-
-      line-height: calc(${FONT_SIZE.s} * 1.625);
     }
 
     .nav {

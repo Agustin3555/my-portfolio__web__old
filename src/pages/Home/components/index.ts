@@ -1,3 +1,5 @@
 export { default as About } from './About/About'
+export { default as Contact } from './Contact/Contact'
 export { default as Section } from './Section/Section'
 export * from './Skills/Skills'
+export { default as Work } from './Work/Work'

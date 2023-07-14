@@ -41,7 +41,6 @@ export const Component = styled.div`
   .section__title {
     font-family: ${FONT.s};
     font-size: ${FONT_SIZE.l};
-    line-height: ${FONT_SIZE.l};
     color: ${cp.title.color};
     transition: color ${MICROINTERACTION.s} ease-out;
   }

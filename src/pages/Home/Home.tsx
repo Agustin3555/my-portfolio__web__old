@@ -1,11 +1,13 @@
 import { MetalCuriosities, Page } from '@/components'
-import { About, Skills } from './components'
+import { About, Contact, Skills, Work } from './components'
 
 const Home = () => {
   return (
     <Page>
       <About />
-      {/* <Skills /> */}
+      <Skills />
+      <Work />
+      <Contact />
       {/* <MetalCuriosities /> */}
     </Page>
   )

@@ -3,102 +3,126 @@ import {
   FONT_SIZE,
   MICROINTERACTION,
   NOT_FONT_SIZE,
+  Value,
+  colorAlphaAdapter,
   shadowAdapter,
 } from '@/styles'
 import styled from '@emotion/styled'
 
-interface SliderStyleProvider {
+const SLIDER_SIZE = NOT_FONT_SIZE['4xl']
+const INDICATOR_SIZE = NOT_FONT_SIZE['2xs']
+const GAP = NOT_FONT_SIZE.s
+const MAX_DESC_LINES = 5
+
+interface Provider {
   controls: {
-    navButton: {
-      color: string
-      hover: {
-        backgroundColor: string
-      }
-    }
     nav: {
       indicatorButton: {
         backgroundColor: string
-        hover: {
-          backgroundColor: string
-        }
         child: {
-          index: number
           backgroundColor: string
         }
       }
     }
   }
-  description: {
-    color: string
-  }
 }
 
-export const sliderStyleAdapter = (
-  darkMode: boolean,
-  item: number
-): SliderStyleProvider => {
-  // #region Auxiliary vars
-
-  // #endregion
-
+export const adapter = (darkMode: boolean): Provider => {
   return {
     controls: {
-      navButton: {
-        color: darkMode ? COLOR.g_4 : COLOR.g_10,
-        hover: {
-          backgroundColor: darkMode ? COLOR.g_14 : COLOR.g_10,
-        },
-      },
       nav: {
         indicatorButton: {
           backgroundColor: darkMode ? COLOR.g_14 : COLOR.g_10,
-          hover: {
-            backgroundColor: darkMode ? COLOR.g_10 : COLOR.g_10,
-          },
           child: {
-            index: item + 1,
             backgroundColor: darkMode ? COLOR.g_4 : COLOR.g_10,
           },
         },
       },
     },
-    description: {
-      color: darkMode ? COLOR.g_6 : COLOR.g_10,
-    },
   }
 }
 
-export const StylizedSlider = styled.div<{ p: SliderStyleProvider }>`
-  position: relative;
-  width: calc(${NOT_FONT_SIZE['5xl']} - ${NOT_FONT_SIZE.s});
-  height: calc(
-    ${NOT_FONT_SIZE['4xl']} + ${NOT_FONT_SIZE.s} * 2 + ${FONT_SIZE.s} * 1.5 * 4
-  );
+interface ConstProvider {
+  width: Value
+  height: Value
+  slider: {
+    width: Value
+    height: Value
+  }
+  glassDescription: {
+    left: Value
+    width: Value
+    height: Value
+  }
+  indicators: {
+    top: Value
+    gap: Value
+    width: Value
+    item: {
+      width: Value
+      height: Value
+    }
+  }
+}
 
-  .box-1 {
+const descLineHeight = `calc(${FONT_SIZE.s} * 1.6)`
+
+const cp: ConstProvider = {
+  width: `calc(${GAP} * 27)`,
+  height: `calc(${SLIDER_SIZE} + ${GAP} * 2 + ${descLineHeight} * ${MAX_DESC_LINES})`,
+  slider: {
+    width: SLIDER_SIZE,
+    height: SLIDER_SIZE,
+  },
+  glassDescription: {
+    left: `calc(${SLIDER_SIZE} * 0.5 - ${GAP} * 2)`,
+    width: SLIDER_SIZE,
+    height: SLIDER_SIZE,
+  },
+  indicators: {
+    top: `calc(${SLIDER_SIZE} + ${GAP})`,
+    gap: INDICATOR_SIZE,
+    width: `calc(${SLIDER_SIZE} * 0.5 - ${GAP} * 3)`,
+    item: {
+      width: INDICATOR_SIZE,
+      height: INDICATOR_SIZE,
+    },
+  },
+}
+
+export const Component = styled.div<{ p: Provider }>`
+  flex-shrink: 0;
+  position: relative;
+  width: ${cp.width};
+  height: ${cp.height};
+
+  .red-box {
     position: absolute;
     top: ${NOT_FONT_SIZE['3xl']};
     right: 0;
   }
 
-  .box-2 {
+  .blue-box {
     position: absolute;
     top: ${NOT_FONT_SIZE.m};
     left: calc(${NOT_FONT_SIZE['4xl']} - ${NOT_FONT_SIZE.l});
   }
 
-  .item-container {
-    position: absolute;
+  .slider {
+    position: relative;
     top: 0;
     left: 0;
-    width: ${NOT_FONT_SIZE['4xl']};
-    height: ${NOT_FONT_SIZE['4xl']};
+    width: ${cp.slider.width};
+    height: ${cp.slider.height};
     border-radius: ${NOT_FONT_SIZE.s};
     box-shadow: ${shadowAdapter(2)};
     overflow: hidden;
 
+    :hover .control-button {
+      opacity: 1;
+    }
+
     .item {
-      position: absolute;
       width: 100%;
       height: 100%;
       background-color: white;
@@ -118,112 +142,114 @@ export const StylizedSlider = styled.div<{ p: SliderStyleProvider }>`
       transform: translateX(0);
     }
 
-    .hidden-button {
+    .control-button {
       position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
       padding: 0;
       width: ${NOT_FONT_SIZE.l};
+      height: 100%;
+      color: ${COLOR.g_4};
+      border: none;
       cursor: pointer;
       opacity: 0;
+      transition: opacity ${MICROINTERACTION.s} ease-out;
+
+      :hover {
+        color: ${COLOR.g_0};
+      }
+
+      .icon {
+        transition: transform ${MICROINTERACTION.s} ease-out;
+      }
     }
 
     .left {
       left: 0;
-      height: 100%;
+      padding-left: ${NOT_FONT_SIZE.xs};
+      background: linear-gradient(
+        90deg,
+        ${colorAlphaAdapter(COLOR.g_19, 0.375)} 0%,
+        rgba(0, 0, 0, 0) 100%
+      );
+
+      :active .icon {
+        transform: translateX(-25%);
+      }
     }
 
     .right {
+      justify-content: flex-end;
       right: 0;
-      bottom: 0;
-      height: calc(100% - ${NOT_FONT_SIZE.xl});
+      padding-right: ${NOT_FONT_SIZE.xs};
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        ${colorAlphaAdapter(COLOR.g_19, 0.375)} 100%
+      );
+
+      :active .icon {
+        transform: translateX(25%);
+      }
     }
   }
 
-  .description {
+  .glass-description {
     position: absolute;
-    left: calc(10.875rem + ${NOT_FONT_SIZE.s});
+    left: ${cp.glassDescription.left};
     bottom: 0;
-    color: ${({ p }) => p.description.color};
+    width: ${cp.glassDescription.width};
+    height: ${cp.glassDescription.height};
 
-    .container {
+    .content {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      width: ${NOT_FONT_SIZE['4xl']};
-      height: ${NOT_FONT_SIZE['4xl']};
-      padding: ${NOT_FONT_SIZE.s};
-      line-height: calc(${FONT_SIZE.s} * 1.5);
-      transition: opacity ${MICROINTERACTION.m} ease-out;
-    }
+      height: 100%;
 
-    .fade-enter {
-      opacity: 0;
-    }
+      .description {
+        transition: opacity ${MICROINTERACTION.m} ease-out;
+      }
 
-    .fade-exit {
-      opacity: 1;
-    }
+      .fade-enter {
+        opacity: 0;
+      }
 
-    .fade-enter-active {
-      opacity: 1;
-    }
+      .fade-exit {
+        opacity: 1;
+      }
 
-    .fade-exit-active {
-      opacity: 0;
+      .fade-enter-active {
+        opacity: 1;
+      }
+
+      .fade-exit-active {
+        opacity: 0;
+      }
     }
   }
 
-  .controls {
+  .indicators {
     position: absolute;
-    top: calc(${NOT_FONT_SIZE['4xl']} + ${NOT_FONT_SIZE.s});
+    top: ${cp.indicators.top};
     display: flex;
-    align-items: center;
-    gap: ${NOT_FONT_SIZE.s};
+    justify-content: flex-end;
+    gap: ${cp.indicators.gap};
+    width: ${cp.indicators.width};
 
-    .nav-button {
-      padding: ${NOT_FONT_SIZE['3xs']};
-      border: none;
-      border-radius: ${NOT_FONT_SIZE['3xs']};
-      color: ${({ p }) => p.controls.navButton.color};
-      background-color: transparent;
-      cursor: pointer;
-      transition: background-color ${MICROINTERACTION.s} ease-out,
-        transform ${MICROINTERACTION.xs} ease-out;
+    .item {
+      width: ${cp.indicators.item.width};
+      height: ${cp.indicators.item.height};
+      border-radius: ${NOT_FONT_SIZE['6xl']};
+      background-color: ${({ p }) => p.controls.nav.indicatorButton.backgroundColor};
+      transition: width ${MICROINTERACTION.l} ease-out,
+        background-color ${MICROINTERACTION.s} ease-out;
 
-      :hover {
-        background-color: ${({ p }) => p.controls.navButton.hover.backgroundColor};
-      }
-
-      :active {
-        transform: scale(0.9);
-      }
-    }
-
-    .nav {
-      display: flex;
-      gap: ${NOT_FONT_SIZE['2xs']};
-
-      .indicator-button {
-        width: ${NOT_FONT_SIZE['2xs']};
-        height: ${NOT_FONT_SIZE['2xs']};
-        padding: 0;
-        border: none;
-        border-radius: ${NOT_FONT_SIZE['6xl']};
+      &[data-activated='true'] {
+        width: calc(${NOT_FONT_SIZE['2xs']} * 3);
         background-color: ${({ p }) =>
-          p.controls.nav.indicatorButton.backgroundColor};
-        cursor: pointer;
-        transition: width ${MICROINTERACTION.l} ease-out,
-          background-color ${MICROINTERACTION.s} ease-out;
-
-        :hover {
-          background-color: ${({ p }) =>
-            p.controls.nav.indicatorButton.hover.backgroundColor};
-        }
-
-        :nth-child(${({ p }) => p.controls.nav.indicatorButton.child.index}) {
-          width: ${NOT_FONT_SIZE.s};
-          background-color: ${({ p }) =>
-            p.controls.nav.indicatorButton.child.backgroundColor};
-        }
+          p.controls.nav.indicatorButton.child.backgroundColor};
       }
     }
   }
