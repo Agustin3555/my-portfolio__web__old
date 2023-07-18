@@ -1,59 +1,135 @@
 import * as SliderStyled from './Slider.styled'
-import { useDarkMode, useData } from '@/hooks'
-import { AnimateState, GlassPanel, Icon, LBox } from '@/components'
-import { useCallback, useMemo, useState } from 'react'
+import { useData } from '@/hooks'
+import { AnimateState, GlassPanel, Icon, Image, LBox } from '@/components'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import myself from '@/assets/myself.jpg'
 import logo from '@/assets/logo.png'
-import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { sleep } from '@/tools'
-import { COLOR, FONT_SIZE, NOT_FONT_SIZE } from '@/styles'
+import {
+  COLOR,
+  FONT_SIZE,
+  MICROINTERACTION,
+  NOT_FONT_SIZE,
+  getCSSVarValue,
+} from '@/styles'
 
-export const Slider = () => {
-  const darkMode = useDarkMode()
-  const [item, setItem] = useState(0)
+const Slider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const itemsContainerRef = useRef<HTMLDivElement | null>(null)
   const [changing, setChanging] = useState(false)
-  const { extraPresentationSlider } = useData().pages.home.sections.about.data
+  const { pages } = useData()
+
+  const { slider } = useMemo(() => {
+    const { slider } = pages.home.sections.about.data
+
+    return { slider }
+  }, [])
 
   const items = useMemo(
     () => [
       {
-        element: <img className="item" src={myself} alt="" />,
-        description: extraPresentationSlider.myself.description,
+        element: (
+          <Image
+            handlingClass="item"
+            src={myself}
+            alt=""
+            key="myself"
+            style={{ size: NOT_FONT_SIZE['4xl'] }}
+          />
+        ),
+        desc: slider.myself,
       },
       {
-        element: <img className="item logo" src={logo} alt="" />,
-        description: extraPresentationSlider.logo.description,
+        element: (
+          <Image
+            handlingClass="item logo"
+            src={logo}
+            alt=""
+            key="logo"
+            style={{ size: NOT_FONT_SIZE['4xl'] }}
+          />
+        ),
+        desc: slider.logo,
       },
       {
-        element: <div className="item">C</div>,
-        description: extraPresentationSlider.metal.description,
+        element: (
+          <div className="item" key="metal">
+            C
+          </div>
+        ),
+        desc: slider.metal,
       },
     ],
     []
   )
 
-  const setItemWrapped = useCallback(async (setItem: () => void) => {
+  const rightButtonHandleClick = useCallback(async () => {
     setChanging(true)
-    setItem()
+
+    if (!itemsContainerRef.current) return
+
+    const itemsContainer = itemsContainerRef.current
+    const children = itemsContainer.children
+
+    if (children.length < 0) return
+
+    setCurrentIndex(prevIndex => (prevIndex + 1) % items.length)
+
+    itemsContainer.style.transform = `translateX(-${getCSSVarValue(
+      SliderStyled.SLIDER_SIZE
+    )})`
+    itemsContainer.style.transition = `transform ${getCSSVarValue(
+      MICROINTERACTION.l
+    )} ease-in-out`
+
     await sleep(1000)
+
+    itemsContainer.style.transform = 'initial'
+    itemsContainer.style.transition = 'initial'
+
+    const firstChild = children[0]
+    itemsContainer.appendChild(firstChild)
+
     setChanging(false)
   }, [])
 
-  const navLeftButtonHandlerClick = useCallback(
-    () =>
-      setItemWrapped(() =>
-        setItem(prevItem => (prevItem === 0 ? items.length - 1 : prevItem - 1))
-      ),
-    []
-  )
+  const leftButtonHandleClick = useCallback(async () => {
+    setChanging(true)
 
-  const navRightButtonHandlerClick = useCallback(
-    () => setItemWrapped(() => setItem(prevItem => (prevItem + 1) % items.length)),
-    []
-  )
+    if (!itemsContainerRef.current) return
+
+    const itemsContainer = itemsContainerRef.current
+    const children = itemsContainer.children
+
+    if (children.length < 0) return
+
+    setCurrentIndex(prevIndex =>
+      prevIndex === 0 ? items.length - 1 : prevIndex - 1
+    )
+
+    const firstChild = children[0]
+    const lastChild = children[children.length - 1]
+    itemsContainer.insertBefore(lastChild, firstChild)
+
+    itemsContainer.style.transform = `translateX(-${getCSSVarValue(
+      SliderStyled.SLIDER_SIZE
+    )})`
+    itemsContainer.style.transition = 'initial'
+
+    await sleep(10)
+
+    itemsContainer.style.transform = 'initial'
+    itemsContainer.style.transition = `transform ${getCSSVarValue(
+      MICROINTERACTION.l
+    )} ease-in-out`
+
+    await sleep(1000)
+
+    setChanging(false)
+  }, [])
 
   return (
-    <SliderStyled.Component p={SliderStyled.adapter(darkMode)}>
+    <SliderStyled.Component>
       <LBox
         handlingClass="red-box"
         style={{ size: NOT_FONT_SIZE.xl, backgroundColor: COLOR.a }}
@@ -66,8 +142,8 @@ export const Slider = () => {
           elevation: 2,
         }}
       >
-        <AnimateState state={String(item)}>
-          <p className="description text">{items[item].description}</p>
+        <AnimateState state={String(currentIndex)}>
+          <p className="description text">{items[currentIndex].desc}</p>
         </AnimateState>
       </GlassPanel>
       <LBox
@@ -75,25 +151,16 @@ export const Slider = () => {
         style={{ size: NOT_FONT_SIZE['2xl'], backgroundColor: COLOR.b }}
       />
       <div className="slider">
-        <SwitchTransition mode="in-out">
-          <CSSTransition
-            key={item}
-            classNames="fade"
-            addEndListener={(node, done) =>
-              node.addEventListener('transitionend', done, false)
-            }
-            timeout={{ exit: 0 }}
-          >
-            {items[item].element}
-          </CSSTransition>
-        </SwitchTransition>
+        <div className="items-container" ref={itemsContainerRef}>
+          {items.map(item => item.element)}
+        </div>
         <button
           className="control-button left"
           title="Retroceder"
-          onClick={changing ? undefined : navLeftButtonHandlerClick}
+          onClick={changing ? undefined : leftButtonHandleClick}
         >
           <Icon
-            handlingClass="icon"
+            handlingClass="button-icon"
             iconName="fa-solid fa-chevron-left"
             style={{ size: FONT_SIZE.m }}
           />
@@ -101,10 +168,10 @@ export const Slider = () => {
         <button
           className="control-button right"
           title="Avanzar"
-          onClick={changing ? undefined : navRightButtonHandlerClick}
+          onClick={changing ? undefined : rightButtonHandleClick}
         >
           <Icon
-            handlingClass="icon"
+            handlingClass="button-icon"
             iconName="fa-solid fa-chevron-right"
             style={{ size: FONT_SIZE.m }}
           />
@@ -112,9 +179,15 @@ export const Slider = () => {
       </div>
       <div className="indicators">
         {items.map((_, index) => (
-          <div className="item" key={index} data-activated={index === item} />
+          <div
+            className="item"
+            key={index}
+            data-activated={index === currentIndex}
+          />
         ))}
       </div>
     </SliderStyled.Component>
   )
 }
+
+export default Slider

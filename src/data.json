@@ -42,18 +42,12 @@
               "Hola, mi nombre es",
               "Juan Agustín Lovera,",
               "Full Stack Web Dev.",
-              "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta. Disfruto creando proyectos innovadores para aplicar mis conocimientos. Aunque tengo poca experiencia en el mundo laboral, estoy emocionado por enfrentar el desafío de trabajar en equipo y poner en práctica todas mis habilidades de manera profesional."
+              "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta."
             ],
-            "extraPresentationSlider": {
-              "myself": {
-                "description": "He trabajado en proyectos complejos y tengo un conocimiento profundo del lenguaje / tecnología, incluyendo características avanzadas y mejores prácticas."
-              },
-              "logo": {
-                "description": "He tomado cursos o tengo conocimientos básicos del lenguaje / tecnología, pero aún no he tenido experiencia práctica considerable."
-              },
-              "metal": {
-                "description": "He trabajado en proyectos pequeños utilizando el lenguaje / tecnología y tengo un conocimiento intermedio de las características del mismo."
-              }
+            "slider": {
+              "myself": "Disfruto creando proyectos innovadores para aplicar mis conocimientos. Aunque tengo poca experiencia laboral, estoy emocionado por enfrentar el desafío de trabajar en equipo y poner en práctica todas mis habilidades de manera profesional.",
+              "logo": "He tomado cursos o tengo conocimientos básicos del lenguaje / tecnología, pero aún no he tenido experiencia práctica considerable.",
+              "metal": "He trabajado en proyectos pequeños utilizando el lenguaje / tecnología y tengo un conocimiento intermedio de las características del mismo."
             }
           }
         },

@@ -135,7 +135,6 @@ export const Component = styled.header<{ p: Provider }>`
           flex-direction: column;
           gap: calc(${FONT_SIZE.s} * 2);
           width: fit-content;
-          height: fit-content;
 
           .group {
             display: flex;

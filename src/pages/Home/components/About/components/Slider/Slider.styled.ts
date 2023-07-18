@@ -1,5 +1,9 @@
 import {
+  BGC_BRIGHT_B,
+  BGC_DARK_B,
   COLOR,
+  COLOR_BRIGHT_A,
+  COLOR_DARK_A,
   FONT_SIZE,
   MICROINTERACTION,
   NOT_FONT_SIZE,
@@ -9,59 +13,20 @@ import {
 } from '@/styles'
 import styled from '@emotion/styled'
 
-const SLIDER_SIZE = NOT_FONT_SIZE['4xl']
+export const SLIDER_SIZE = NOT_FONT_SIZE['4xl']
 const INDICATOR_SIZE = NOT_FONT_SIZE['2xs']
 const GAP = NOT_FONT_SIZE.s
-const MAX_DESC_LINES = 5
-
-interface Provider {
-  controls: {
-    nav: {
-      indicatorButton: {
-        backgroundColor: string
-        child: {
-          backgroundColor: string
-        }
-      }
-    }
-  }
-}
-
-export const adapter = (darkMode: boolean): Provider => {
-  return {
-    controls: {
-      nav: {
-        indicatorButton: {
-          backgroundColor: darkMode ? COLOR.g_14 : COLOR.g_10,
-          child: {
-            backgroundColor: darkMode ? COLOR.g_4 : COLOR.g_10,
-          },
-        },
-      },
-    },
-  }
-}
+const MAX_DESC_LINES = 6
 
 interface ConstProvider {
   width: Value
   height: Value
-  slider: {
-    width: Value
-    height: Value
-  }
   glassDescription: {
     left: Value
-    width: Value
-    height: Value
   }
   indicators: {
     top: Value
-    gap: Value
     width: Value
-    item: {
-      width: Value
-      height: Value
-    }
   }
 }
 
@@ -70,27 +35,16 @@ const descLineHeight = `calc(${FONT_SIZE.s} * 1.6)`
 const cp: ConstProvider = {
   width: `calc(${GAP} * 27)`,
   height: `calc(${SLIDER_SIZE} + ${GAP} * 2 + ${descLineHeight} * ${MAX_DESC_LINES})`,
-  slider: {
-    width: SLIDER_SIZE,
-    height: SLIDER_SIZE,
-  },
   glassDescription: {
     left: `calc(${SLIDER_SIZE} * 0.5 - ${GAP} * 2)`,
-    width: SLIDER_SIZE,
-    height: SLIDER_SIZE,
   },
   indicators: {
     top: `calc(${SLIDER_SIZE} + ${GAP})`,
-    gap: INDICATOR_SIZE,
     width: `calc(${SLIDER_SIZE} * 0.5 - ${GAP} * 3)`,
-    item: {
-      width: INDICATOR_SIZE,
-      height: INDICATOR_SIZE,
-    },
   },
 }
 
-export const Component = styled.div<{ p: Provider }>`
+export const Component = styled.div`
   flex-shrink: 0;
   position: relative;
   width: ${cp.width};
@@ -112,8 +66,8 @@ export const Component = styled.div<{ p: Provider }>`
     position: relative;
     top: 0;
     left: 0;
-    width: ${cp.slider.width};
-    height: ${cp.slider.height};
+    width: ${SLIDER_SIZE};
+    height: ${SLIDER_SIZE};
     border-radius: ${NOT_FONT_SIZE.s};
     box-shadow: ${shadowAdapter(2)};
     overflow: hidden;
@@ -122,24 +76,16 @@ export const Component = styled.div<{ p: Provider }>`
       opacity: 1;
     }
 
-    .item {
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      border-radius: ${NOT_FONT_SIZE.s};
-      transition: transform ${MICROINTERACTION.l} ease-out;
-    }
+    .items-container {
+      display: flex;
 
-    .logo {
-      background-color: ${COLOR.a};
-    }
+      .item {
+        flex-shrink: 0;
+      }
 
-    .fade-enter {
-      transform: translateX(-100%);
-    }
-
-    .fade-enter-active {
-      transform: translateX(0);
+      .logo {
+        background-color: ${COLOR.a};
+      }
     }
 
     .control-button {
@@ -148,7 +94,7 @@ export const Component = styled.div<{ p: Provider }>`
       display: flex;
       align-items: center;
       padding: 0;
-      width: ${NOT_FONT_SIZE.l};
+      width: ${NOT_FONT_SIZE.xl};
       height: 100%;
       color: ${COLOR.g_4};
       border: none;
@@ -160,7 +106,7 @@ export const Component = styled.div<{ p: Provider }>`
         color: ${COLOR.g_0};
       }
 
-      .icon {
+      .button-icon {
         transition: transform ${MICROINTERACTION.s} ease-out;
       }
     }
@@ -174,7 +120,7 @@ export const Component = styled.div<{ p: Provider }>`
         rgba(0, 0, 0, 0) 100%
       );
 
-      :active .icon {
+      :active .button-icon {
         transform: translateX(-25%);
       }
     }
@@ -189,7 +135,7 @@ export const Component = styled.div<{ p: Provider }>`
         ${colorAlphaAdapter(COLOR.g_19, 0.375)} 100%
       );
 
-      :active .icon {
+      :active .button-icon {
         transform: translateX(25%);
       }
     }
@@ -199,8 +145,8 @@ export const Component = styled.div<{ p: Provider }>`
     position: absolute;
     left: ${cp.glassDescription.left};
     bottom: 0;
-    width: ${cp.glassDescription.width};
-    height: ${cp.glassDescription.height};
+    width: ${SLIDER_SIZE};
+    height: ${SLIDER_SIZE};
 
     .content {
       display: flex;
@@ -235,21 +181,30 @@ export const Component = styled.div<{ p: Provider }>`
     top: ${cp.indicators.top};
     display: flex;
     justify-content: flex-end;
-    gap: ${cp.indicators.gap};
+    gap: ${INDICATOR_SIZE};
     width: ${cp.indicators.width};
 
     .item {
-      width: ${cp.indicators.item.width};
-      height: ${cp.indicators.item.height};
+      width: ${INDICATOR_SIZE};
+      height: ${INDICATOR_SIZE};
       border-radius: ${NOT_FONT_SIZE['6xl']};
-      background-color: ${({ p }) => p.controls.nav.indicatorButton.backgroundColor};
-      transition: width ${MICROINTERACTION.l} ease-out,
+      background-color: ${BGC_BRIGHT_B};
+      transition: width ${MICROINTERACTION.l} ease-in-out,
         background-color ${MICROINTERACTION.s} ease-out;
 
       &[data-activated='true'] {
         width: calc(${NOT_FONT_SIZE['2xs']} * 3);
-        background-color: ${({ p }) =>
-          p.controls.nav.indicatorButton.child.backgroundColor};
+        background-color: ${COLOR_BRIGHT_A};
+      }
+    }
+
+    .app[data-dark-mode='true'] & {
+      .item {
+        background-color: ${BGC_DARK_B};
+
+        &[data-activated='true'] {
+          background-color: ${COLOR_DARK_A};
+        }
       }
     }
   }
