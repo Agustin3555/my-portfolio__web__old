@@ -1,6 +1,7 @@
 import { useData } from '@/hooks'
 import { useMemo } from 'react'
 import Section from '../Section/Section'
+import * as ContactStyled from './Contact.styled'
 
 const Contact = () => {
   const { pages } = useData()
@@ -13,11 +14,7 @@ const Contact = () => {
     return { sectionKey, title }
   }, [])
 
-  return (
-    <Section sectionKey={sectionKey} title={title}>
-      a
-    </Section>
-  )
+  return <Section sectionKey={sectionKey} title={title}></Section>
 }
 
 export default Contact

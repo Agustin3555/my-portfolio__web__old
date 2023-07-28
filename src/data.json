@@ -211,7 +211,7 @@
                       "skillLevel": 1
                     },
                     {
-                      "names": ["Nest"],
+                      "names": ["NestJS"],
                       "icons": [
                         {
                           "fileName": "logo-nest-js.svg",
@@ -292,13 +292,116 @@
             }
           }
         },
-        "work": {
+        "works": {
           "buttonTitle": "Trabajos",
-          "title": "Trabajos"
+          "title": "Trabajos",
+          "data": {
+            "works": [
+              {
+                "title": "Goicoechea Admin",
+                "types": ["Web App", "API", "Data Base"],
+                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta. Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "technologies": [
+                  "TypeScript",
+                  "React",
+                  "Redux",
+                  "Redux Toolkit",
+                  "styled-components",
+                  "NestJS",
+                  "Prisma",
+                  "JWT",
+                  "PostgreSQL",
+                  "Firebase"
+                ],
+                "imgs": [
+                  { "src": "goicoechea-admin/myself.jpg", "alt": "" },
+                  { "src": "goicoechea-admin/logo.png", "alt": "" },
+                  { "src": "goicoechea-admin/16_9.webp", "alt": "" },
+                  { "src": "goicoechea-admin/16_9_2.jpg", "alt": "" }
+                ]
+              },
+              {
+                "title": "Agustín Lovera",
+                "types": ["Web"],
+                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "technologies": ["TypeScript", "React", "Zustand", "Emotion"],
+                "imgs": [
+                  { "src": "goicoechea-admin/myself.jpg", "alt": "" },
+                  { "src": "goicoechea-admin/logo.png", "alt": "" }
+                ],
+                "links": {
+                  "srcCodeUrl": "https://github.com/Agustin3555"
+                }
+              },
+              {
+                "title": "Sequence",
+                "types": ["Web"],
+                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "technologies": ["TypeScript", "React", "Zustand", "Emotion"],
+                "imgs": [
+                  { "src": "goicoechea-admin/myself.jpg", "alt": "" },
+                  { "src": "goicoechea-admin/logo.png", "alt": "" }
+                ],
+                "links": {
+                  "srcCodeUrl": "https://github.com/Agustin3555",
+                  "others": [
+                    {
+                      "title": "PAGINA 1",
+                      "url": "https://www.instagram.com/agustin_lovera2"
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "Kalimar",
+                "types": ["Web"],
+                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "technologies": ["HTML", "CSS", "JavaScript"],
+                "imgs": [
+                  { "src": "goicoechea-admin/myself.jpg", "alt": "" },
+                  { "src": "goicoechea-admin/logo.png", "alt": "" }
+                ],
+                "links": {
+                  "srcCodeUrl": "https://github.com/Agustin3555",
+                  "others": [
+                    {
+                      "title": "PAGINA 1",
+                      "url": "https://www.instagram.com/agustin_lovera2"
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "Hydro Saving",
+                "types": ["Mobile App"],
+                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "technologies": [
+                  "TypeScript",
+                  "React Native",
+                  "Zustand",
+                  "Firebase"
+                ],
+                "imgs": [
+                  { "src": "goicoechea-admin/myself.jpg", "alt": "" },
+                  { "src": "goicoechea-admin/logo.png", "alt": "" }
+                ],
+                "sliderAspectRatio": [4, 3],
+                "links": {
+                  "srcCodeUrl": "https://github.com/Agustin3555",
+                  "others": [
+                    {
+                      "title": "PAGINA 1",
+                      "url": "https://www.instagram.com/agustin_lovera2"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         },
-        "experience": {
-          "buttonTitle": "Experiencia",
-          "title": "Experiencia"
+        "education": {
+          "buttonTitle": "Formación",
+          "title": "Formación"
         },
         "contact": {
           "buttonTitle": "Contáctame",

@@ -1,67 +1,32 @@
-import { MICROINTERACTION, NOT_FONT_SIZE, Size, Value } from '@/styles'
+import { MICROINTERACTION, NOT_FONT_SIZE } from '@/styles'
 import styled from '@emotion/styled'
 
-export interface Props {
-  size?: Size
-}
-
-interface Provider {
-  width: Value
-  height: Value
-
-  img: {
-    width: Value
-    height: Value
-  }
-}
-
-interface NormalizedProps {
-  size: Size
-}
-
-export const adapter = (style?: Props): Provider => {
-  const { size }: NormalizedProps = {
-    size: style?.size || NOT_FONT_SIZE.l,
-  }
-
-  return {
-    width: size,
-    height: size,
-
-    img: {
-      width: size,
-      height: size,
-    },
-  }
-}
-
-export const Component = styled.div<{ p: Provider }>`
-  width: ${({ p }) => p.width};
-  height: ${({ p }) => p.height};
-
+export const Component = styled.div`
   .loader-C {
     position: absolute;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    transition: opacity ${MICROINTERACTION.s} ease-out;
+    transition: display ${MICROINTERACTION.s} linear ${MICROINTERACTION.s},
+      opacity ${MICROINTERACTION.s} ease-out;
   }
 
   .img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     filter: blur(${NOT_FONT_SIZE['4xs']});
     opacity: 0;
-    transition: filter ${MICROINTERACTION.s} ease-out,
-      opacity ${MICROINTERACTION.s} ease-out;
+    transition: filter ${MICROINTERACTION.s} ease-out ${MICROINTERACTION.s},
+      opacity ${MICROINTERACTION.s} ease-out ${MICROINTERACTION.s};
   }
 
   &[data-loaded='true'] {
     .loader-C {
       opacity: 0;
+      display: none;
     }
 
     .img {

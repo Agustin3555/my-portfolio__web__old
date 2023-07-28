@@ -54,6 +54,7 @@ export const adapter = ({
 
 export const Component = styled.div<{ p: Provider }>`
   position: relative;
+  width: fit-content;
   border-radius: ${({ p }) => p.borderRadius};
   box-shadow: ${({ p }) => p.boxShadow};
   ${GLASS_SET.this}

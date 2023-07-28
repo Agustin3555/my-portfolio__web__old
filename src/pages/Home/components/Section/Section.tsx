@@ -7,7 +7,7 @@ const Section = ({
 }: {
   sectionKey: string
   title?: string
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }) => {
   return (
     <SectionStyled.Component id={sectionKey}>

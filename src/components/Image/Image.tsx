@@ -7,12 +7,10 @@ const Image = ({
   src,
   alt,
   handlingClass,
-  style,
 }: {
   src: string
   alt: string
   handlingClass: HandlingClass
-  style?: ImageStyled.Props
 }) => {
   const [loading, setLoading] = useState(true)
 
@@ -24,7 +22,6 @@ const Image = ({
     <ImageStyled.Component
       className={asClassName(handlingClass)}
       data-loaded={!loading}
-      p={ImageStyled.adapter(style)}
     >
       {loading && (
         <div className="loader-C">

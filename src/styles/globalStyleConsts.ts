@@ -14,6 +14,7 @@ export const COLOR_DARK_B = COLOR.g_2
 export const COLOR_BRIGHT_B = COLOR.g_14
 
 export enum MEDIA {
+  xs = '31.25rem',
   s = '56.25rem',
   m = 'calc(100rem + 4.25rem * 4 + 0.375rem * 3)',
 }
@@ -24,10 +25,10 @@ export const GLASS_SET = {
   `,
   refleccion: css`
     background: linear-gradient(
-      330deg,
-      rgba(160, 160, 160, 0.01875) 25%,
-      rgba(160, 160, 160, 0.0375) 75%,
-      rgba(160, 160, 160, 0.125) 100%
+      -30deg,
+      rgba(160, 160, 160, 0.0375) 25%,
+      rgba(160, 160, 160, 0.075) 75%,
+      rgba(160, 160, 160, 0.1875) 100%
     );
   `,
   content: css`

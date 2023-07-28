@@ -30,9 +30,11 @@ interface ConstProvider {
   width: Value
   height: Value
   borderRadius: Value
+
   glassRefleccion: {
     borderRadius: Value
   }
+
   content: {
     borderRadius: Value
   }
@@ -42,9 +44,11 @@ const cp: ConstProvider = {
   width: SIZE,
   height: SIZE,
   borderRadius: BORDER_RADIUS,
+
   glassRefleccion: {
     borderRadius: BORDER_RADIUS,
   },
+
   content: {
     borderRadius: BORDER_RADIUS,
   },

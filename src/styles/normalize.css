@@ -363,8 +363,22 @@ html {
   scroll-behavior: smooth;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
+  font-weight: bold;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
 }
 
 .text {

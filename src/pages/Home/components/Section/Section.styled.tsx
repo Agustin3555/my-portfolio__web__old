@@ -40,7 +40,7 @@ export const Component = styled.div`
 
   .section__title {
     font-family: ${FONT.s};
-    font-size: ${FONT_SIZE.l};
+    font-size: ${FONT_SIZE.xl};
     color: ${cp.title.color};
     transition: color ${MICROINTERACTION.s} ease-out;
   }
