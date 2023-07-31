@@ -401,18 +401,62 @@
         },
         "education": {
           "buttonTitle": "Formación",
-          "title": "Formación"
+          "title": "Formación",
+          "data": {
+            "items": [
+              {
+                "title": "Tecnicatura Universitaria en Programación",
+                "startDate": "2023-01-01",
+                "endDate": "2023-01-01",
+                "eduInstitutionName": "Universidad Tecnológica Nacional FRRe",
+                "eduInstitutionLogoFile": "LOGO.png",
+                "url": "https://www.frre.utn.edu.ar/tsp/paginas/view/item/Incumbencias",
+                "desc": [
+                  "Perfil del Técnico Universitario en Programación:",
+                  "• Análisis y desarrollo de problemas de procesamiento de datos con lenguajes adecuados.",
+                  "• Elaboración y corrección de programas en lenguajes superiores.",
+                  "• Realización de tareas definidas por el Analista de Sistemas de Computación.",
+                  "• Análisis, depuración y transferencia de información procesada al especialista correspondiente."
+                ]
+              },
+              {
+                "title": "Curso de Desarrollo Web",
+                "startDate": "2023-01-01",
+                "endDate": "2023-01-01",
+                "eduInstitutionName": "Informatorio",
+                "eduInstitutionLogoFile": "LOGO.png",
+                "url": "https://www.frre.utn.edu.ar/tsp/paginas/view/item/Incumbencias",
+                "desc": [
+                  "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta."
+                ]
+              },
+              {
+                "title": "Curso de Introducción a la Programación",
+                "startDate": "2023-01-01",
+                "endDate": "2023-01-01",
+                "eduInstitutionName": "Informatorio",
+                "eduInstitutionLogoFile": "LOGO.png",
+                "url": "https://www.frre.utn.edu.ar/tsp/paginas/view/item/Incumbencias",
+                "desc": [
+                  "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta."
+                ]
+              }
+            ]
+          }
         },
         "contact": {
           "buttonTitle": "Contáctame",
-          "title": "Contáctame"
+          "title": "Contáctame",
+          "data": {
+            "desc": "...",
+            "email": "Agustin3555@hotmail.com"
+          }
         }
       }
     },
     "resume": {
       "buttonTitle": "Currículum",
-      "pageTitle": "Currículum",
-      "data": {}
+      "pageTitle": "Currículum"
     },
     "notFound": {
       "pageTitle": "Página no encontrada",

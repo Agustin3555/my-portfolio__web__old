@@ -1,5 +1,5 @@
 import { MetalCuriosities, Page } from '@/components'
-import { About, Contact, Skills, Works } from './components'
+import { About, Contact, Education, Skills, Works } from './components'
 
 const Home = () => {
   return (
@@ -7,6 +7,7 @@ const Home = () => {
       <About />
       <Skills />
       <Works />
+      <Education />
       <Contact />
       {/* <MetalCuriosities /> */}
     </Page>

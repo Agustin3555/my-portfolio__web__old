@@ -371,6 +371,11 @@ h4 {
   font-weight: bold;
 }
 
+h5 {
+  margin: 0;
+  font-weight: normal;
+}
+
 ul,
 ol {
   list-style: none;
@@ -382,5 +387,5 @@ li {
 }
 
 .text {
-  line-height: 1.6;
+  line-height: 1.5;
 }
