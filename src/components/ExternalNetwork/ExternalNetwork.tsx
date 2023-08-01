@@ -18,6 +18,7 @@ const ExternalNetwork = ({
       title={title}
       href={url}
       target="_blank"
+      rel="noopener noreferrer"
       p={ExternalNetworkStyled.adapter(style)}
     >
       <div className="external-network__glass-refleccion" />
