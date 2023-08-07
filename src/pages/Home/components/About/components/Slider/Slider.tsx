@@ -8,6 +8,7 @@ import { sleep } from '@/tools'
 import {
   COLOR,
   FONT_SIZE,
+  MAIN_GAP,
   MICROINTERACTION,
   NOT_FONT_SIZE,
   getCSSVarValue,
@@ -137,7 +138,7 @@ const Slider = () => {
       <GlassPanel
         handlingClass="glass-description"
         style={{
-          padding: NOT_FONT_SIZE.s,
+          padding: MAIN_GAP,
           borderRadius: NOT_FONT_SIZE.s,
           elevation: 2,
         }}

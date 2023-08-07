@@ -5,6 +5,7 @@ import {
   COLOR_BRIGHT_A,
   COLOR_DARK_A,
   FONT_SIZE,
+  MAIN_GAP,
   MICROINTERACTION,
   NOT_FONT_SIZE,
   Value,
@@ -15,7 +16,7 @@ import styled from '@emotion/styled'
 
 export const SLIDER_SIZE = NOT_FONT_SIZE['4xl']
 const INDICATOR_SIZE = NOT_FONT_SIZE['2xs']
-const GAP = NOT_FONT_SIZE.s
+const GAP = MAIN_GAP
 const MAX_DESC_LINES = 6
 
 interface ConstProvider {

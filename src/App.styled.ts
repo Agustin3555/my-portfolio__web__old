@@ -4,11 +4,14 @@ import {
   BGC_DARK_A,
   COLOR_BRIGHT_A,
   COLOR_DARK_A,
+  MAIN_GAP,
   MEDIA,
   MICROINTERACTION,
   NOT_FONT_SIZE,
+  STATIC_WIDTH,
 } from './styles'
 
+const GAP = MAIN_GAP
 const PADDING = `calc(${NOT_FONT_SIZE.l} * 2)`
 
 export const Component = styled.div`
@@ -20,13 +23,10 @@ export const Component = styled.div`
   overflow: hidden;
   transition: background-color ${MICROINTERACTION.s} ease-out;
 
-  .main {
+  .static {
     display: flex;
     flex-direction: column;
-    gap: ${NOT_FONT_SIZE.xl};
-    width: 100rem;
-    padding-top: ${PADDING};
-    padding-bottom: ${PADDING};
+    width: ${STATIC_WIDTH};
     transition: width ${MICROINTERACTION.m} ease, padding ${MICROINTERACTION.m} ease;
 
     @media (max-width: ${MEDIA.m}) {
@@ -36,16 +36,30 @@ export const Component = styled.div`
     }
 
     @media (max-width: ${MEDIA.s}) {
-      padding-left: ${NOT_FONT_SIZE.s};
-      padding-right: ${NOT_FONT_SIZE.s};
+      padding-left: 0;
+      padding-right: 0;
+
+      .main {
+        padding-left: ${GAP};
+        padding-right: ${GAP};
+      }
     }
 
-    > *:nth-of-type(1) {
-      scroll-margin-top: ${PADDING};
-    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: ${NOT_FONT_SIZE.xl};
+      padding-top: ${PADDING};
+      padding-bottom: ${PADDING};
+      transition: padding ${MICROINTERACTION.m} ease;
 
-    > *:not(:nth-of-type(1)) {
-      scroll-margin-top: ${NOT_FONT_SIZE.s};
+      > *:nth-of-type(1) {
+        scroll-margin-top: ${PADDING};
+      }
+
+      > *:not(:nth-of-type(1)) {
+        scroll-margin-top: ${GAP};
+      }
     }
   }
 

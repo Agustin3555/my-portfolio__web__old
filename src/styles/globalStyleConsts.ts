@@ -1,6 +1,9 @@
 import { css } from '@emotion/react'
 import { COLOR, NOT_FONT_SIZE } from './enums'
 
+export const MAIN_GAP = NOT_FONT_SIZE.s
+export const STATIC_WIDTH = `75rem`
+
 export const BGC_DARK_A = COLOR.g_16
 export const BGC_BRIGHT_A = COLOR.g_1
 
@@ -16,7 +19,7 @@ export const COLOR_BRIGHT_B = COLOR.g_14
 export enum MEDIA {
   xs = '31.25rem',
   s = '56.25rem',
-  m = 'calc(100rem + 4.25rem * 4 + 0.375rem * 3)',
+  m = `calc(${STATIC_WIDTH} + 4.25rem * 4 + 0.375rem * 3)`,
 }
 
 export const GLASS_SET = {

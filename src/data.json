@@ -32,6 +32,25 @@
     ],
     "meows": ["cat-meow-1.wav", "cat-meow-2.wav", "cat-meow-3.wav"]
   },
+  "footer": {
+    "sections": {
+      "acknowledgments": {
+        "title": "Agradecimientos",
+        "data": {
+          "text": "Su apoyo y enseñanzas han sido invaluables. A continuación, quiero reconocer a quienes han dejado una huella significativa en mi carrera:",
+          "items": [
+            "Mis profesores de universidad.",
+            "Mis padres.",
+            "Mi primera gata."
+          ]
+        }
+      },
+      "othersPages": {
+        "title": "Otras páginas"
+      }
+    },
+    "copyright": "© 2023 Juan Agustín Lovera. Todos los derechos reservados."
+  },
   "pages": {
     "home": {
       "sections": {
@@ -448,7 +467,7 @@
           "buttonTitle": "Contáctame",
           "title": "Contáctame",
           "data": {
-            "desc": "Although Im not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, Ill try my best to get back to you!",
+            "desc": "Si eres un reclutador y deseas hablar de oportunidades de trabajo, te dejo mi contacto. O bien, si eres un programador y necesitas ayuda con tu código o buscas orientación en algún aspecto técnico, ¡estaré encantado de ayudarte! No dudes en ponerte en contacto a través del siguiente botón que te hará escribirme un correo.",
             "email": "Agustin3555@hotmail.com"
           }
         }

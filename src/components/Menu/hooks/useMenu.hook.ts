@@ -1,7 +1,7 @@
 import { useData } from '@/hooks'
 import { useMemo } from 'react'
 import { reassemble } from '../tools'
-import { ButtonSectionProps } from '../components'
+import { ButtonSectionProps } from '@/components/ButtonSection/ButtonSection'
 
 export const useMenu = () => {
   const { pages } = useData()

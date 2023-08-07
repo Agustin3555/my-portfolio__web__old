@@ -16,6 +16,7 @@ export const Component = styled.div`
 
   .email-link {
     position: relative;
+    margin-bottom: ${NOT_FONT_SIZE.xl};
 
     .link {
       display: inline-block;
@@ -43,7 +44,7 @@ export const Component = styled.div`
       }
 
       .b-2 {
-        top: -3rem;
+        top: -4rem;
         right: -2rem;
       }
 
@@ -65,7 +66,7 @@ export const Component = styled.div`
     }
 
     .b-2 {
-      top: -2rem;
+      top: -3rem;
       right: -1rem;
     }
 

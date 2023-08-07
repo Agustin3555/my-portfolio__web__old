@@ -1,7 +1,6 @@
 import * as BarMenuStyled from './BarMenu.styled'
-import { GlassPanel, Separator } from '@/components'
-import { COLOR_BRIGHT_A, COLOR_DARK_A, NOT_FONT_SIZE } from '@/styles'
-import ButtonSection from '../ButtonSection/ButtonSection'
+import { ButtonSection, GlassPanel, Separator } from '@/components'
+import { COLOR_BRIGHT_A, COLOR_DARK_A, MAIN_GAP, NOT_FONT_SIZE } from '@/styles'
 import { useMenu } from '../../hooks'
 import { css } from '@emotion/react'
 
@@ -12,7 +11,7 @@ const BarMenu = ({ scrollDirection }: { scrollDirection: boolean }) => {
     <BarMenuStyled.Component data-hidden={scrollDirection}>
       <GlassPanel
         style={{
-          padding: NOT_FONT_SIZE.s,
+          padding: MAIN_GAP,
           borderRadius: NOT_FONT_SIZE['2xs'],
           elevation: 2,
           styled: css`

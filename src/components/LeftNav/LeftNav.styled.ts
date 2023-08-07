@@ -1,7 +1,7 @@
-import { MEDIA, MICROINTERACTION, NOT_FONT_SIZE, Value } from '@/styles'
+import { MAIN_GAP, MEDIA, MICROINTERACTION, NOT_FONT_SIZE, Value } from '@/styles'
 import styled from '@emotion/styled'
 
-const GAP = NOT_FONT_SIZE.s
+const GAP = MAIN_GAP
 
 interface ConstProvider {
   left: Value
