@@ -292,23 +292,20 @@
                 }
               ]
             },
-            "levels": {
-              "title": "Niveles",
-              "data": [
-                {
-                  "level": "Principiante",
-                  "description": "He tomado cursos o tengo conocimientos básicos del lenguaje / tecnología, pero aún no he tenido experiencia práctica considerable."
-                },
-                {
-                  "level": "Intermedio",
-                  "description": "He trabajado en proyectos pequeños utilizando el lenguaje / tecnología y tengo un conocimiento intermedio de las características del mismo."
-                },
-                {
-                  "level": "Avanzado",
-                  "description": "He trabajado en proyectos complejos y tengo un conocimiento profundo del lenguaje / tecnología, incluyendo características avanzadas y mejores prácticas."
-                }
-              ]
-            }
+            "levels": [
+              {
+                "level": "Principiante",
+                "description": "He tomado cursos o tengo conocimientos básicos del lenguaje / tecnología, pero aún no he tenido experiencia práctica considerable."
+              },
+              {
+                "level": "Intermedio",
+                "description": "He trabajado en proyectos pequeños utilizando el lenguaje / tecnología y tengo un conocimiento intermedio de las características del mismo."
+              },
+              {
+                "level": "Avanzado",
+                "description": "He trabajado en proyectos complejos y tengo un conocimiento profundo del lenguaje / tecnología, incluyendo características avanzadas y mejores prácticas."
+              }
+            ]
           }
         },
         "works": {

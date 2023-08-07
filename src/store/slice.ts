@@ -3,10 +3,12 @@ import {
   DarkModeSlice,
   ExternalNetworkLocationSlice,
   FocusedSectionSlice,
+  SelectedSkillLevelSlice,
 } from './slices'
 
 export type AppStore = DarkModeSlice &
   ExternalNetworkLocationSlice &
-  FocusedSectionSlice
+  FocusedSectionSlice &
+  SelectedSkillLevelSlice
 
 export type Slice<T> = StateCreator<AppStore, [], [], T>
