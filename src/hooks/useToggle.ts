@@ -7,7 +7,7 @@ export const useToggle = (initState = false) => {
     setState(prevState => !prevState)
   }, [])
 
-  return [state, toggle]
+  return [state, toggle, setState] as const
 }
 
 // TODO: existen varios componentes que podrian ocupar este hook y no lo hacen

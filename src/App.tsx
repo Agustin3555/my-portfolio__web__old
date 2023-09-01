@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <AppStyled.Component className="app" data-dark-mode={darkMode}>
-      <GlobalStyle />
+      <GlobalStyle darkMode={darkMode} />
       <div className="static">
         <main className="main">
           <BrowserRouter>

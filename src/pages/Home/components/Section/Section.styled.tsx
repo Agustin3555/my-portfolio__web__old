@@ -33,7 +33,7 @@ const cp: ConstProvider = {
   },
 }
 
-export const Component = styled.div`
+export const Component = styled.section`
   display: flex;
   flex-direction: column;
   gap: ${NOT_FONT_SIZE.l};

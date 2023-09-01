@@ -41,4 +41,14 @@ export const Component = styled.ol`
       padding: 0;
     }
   }
+
+  @media (min-width: 75rem) {
+    flex-direction: column;
+    gap: ${GAP};
+    width: 37.5%;
+
+    .item {
+      padding: 0;
+    }
+  }
 `

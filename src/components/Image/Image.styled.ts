@@ -1,7 +1,7 @@
 import { MICROINTERACTION, NOT_FONT_SIZE } from '@/styles'
 import styled from '@emotion/styled'
 
-export const Component = styled.div`
+export const Component = styled.figure`
   .loader-C {
     position: absolute;
     display: flex;

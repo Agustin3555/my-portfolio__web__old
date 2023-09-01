@@ -1,17 +1,16 @@
 import {
   COLOR,
-  FONT_SIZE,
+  MAIN_GAP,
   MICROINTERACTION,
   NOT_FONT_SIZE,
   Value,
-  colorAlphaAdapter,
   shadowAdapter,
 } from '@/styles'
 import styled from '@emotion/styled'
 
-const INDICATOR_SIZE = NOT_FONT_SIZE['2xs']
-const GAP = NOT_FONT_SIZE.s
-const PATTERN_BACKGROUND_GAP = GAP
+const INDICATOR_SIZE = '0.6875rem'
+const GAP = `calc(${MAIN_GAP} * 0.5)`
+const PATTERN_BACKGROUND_GAP = MAIN_GAP
 const PATTERN_DOT_SIZE = NOT_FONT_SIZE['6xs']
 
 export interface Props {
@@ -110,14 +109,8 @@ export const Component = styled.div<{ p: Provider }>`
   overflow: hidden;
   transition: background ${MICROINTERACTION.s} ease-out;
 
-  :hover .controls {
-    .control-button {
-      opacity: 1;
-    }
-
-    .mid .toggle-fullscreen {
-      opacity: 1;
-    }
+  :hover .controls-C .controls .control {
+    opacity: 1;
   }
 
   .items-C {
@@ -125,130 +118,66 @@ export const Component = styled.div<{ p: Provider }>`
     height: 100%;
 
     .item {
+      flex-grow: 0;
+      flex-shrink: 0;
       aspect-ratio: ${({ p }) => p.itemsC.item.aspectRatio};
     }
   }
 
-  .controls {
+  .controls-C {
     position: absolute;
     top: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
     height: 100%;
+    color: ${COLOR.g_4};
 
-    .control-button {
+    .controls {
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 0;
-      width: 10%;
-      height: 100%;
-      color: ${COLOR.g_4};
-      border: none;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity ${MICROINTERACTION.s} ease-out;
+      gap: ${GAP};
+      margin: calc(${GAP} * 2);
 
-      :hover {
-        color: ${COLOR.g_0};
-      }
-
-      .button-icon {
-        transition: transform ${MICROINTERACTION.s} ease-out;
-      }
-    }
-
-    .left {
-      left: 0;
-      background: linear-gradient(
-        90deg,
-        ${colorAlphaAdapter(COLOR.g_19, 0.375)} 0%,
-        rgba(0, 0, 0, 0) 100%
-      );
-
-      :active .button-icon {
-        transform: translateX(-25%);
-      }
-    }
-
-    .right {
-      right: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0) 0%,
-        ${colorAlphaAdapter(COLOR.g_19, 0.375)} 100%
-      );
-
-      :active .button-icon {
-        transform: translateX(25%);
-      }
-    }
-
-    .mid {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: calc(${GAP} - ${NOT_FONT_SIZE['2xs']});
-      padding-bottom: ${GAP};
-
-      .toggle-fullscreen {
-        position: relative;
+      .control {
         opacity: 0;
-        transition: opacity ${MICROINTERACTION.s} ease-out;
+        transition: box-shadow ${MICROINTERACTION.xs} ease-out,
+          opacity ${MICROINTERACTION.s} ease-out;
 
-        .background {
-          position: absolute;
-          top: calc(-500% * 0.5 + ${FONT_SIZE.m} * 0.5 + ${NOT_FONT_SIZE['2xs']});
-          left: calc(-500% * 0.5 + ${FONT_SIZE.m} * 0.5 + ${NOT_FONT_SIZE['2xs']});
-          width: 500%;
-          height: 500%;
-          background: radial-gradient(
-            circle,
-            ${colorAlphaAdapter(COLOR.g_19, 0.25)} 0%,
-            rgba(0, 0, 0, 0) 62.5%
-          );
-        }
-
-        .button {
-          position: relative;
-          padding: ${NOT_FONT_SIZE['2xs']};
-          color: ${COLOR.g_4};
-          border: none;
-          background-color: transparent;
-          cursor: pointer;
-          transition: color ${MICROINTERACTION.s} ease-out;
-
-          :hover {
-            color: ${COLOR.g_0};
-          }
+        @media (hover: none) and (any-hover: none) {
+          opacity: 1;
         }
       }
 
       .indicators {
-        align-self: flex-end;
-
         display: flex;
-        justify-content: flex-end;
         gap: ${INDICATOR_SIZE};
 
         .item {
           width: ${INDICATOR_SIZE};
           height: ${INDICATOR_SIZE};
           border-radius: ${NOT_FONT_SIZE['6xl']};
-          background-color: ${colorAlphaAdapter(COLOR.g_12, 0.625)};
+          background-color: ${COLOR.g_12};
           box-shadow: ${shadowAdapter(2)};
-          backdrop-filter: blur(15px);
-          transition: width ${MICROINTERACTION.l} ease-in-out,
+          transition: width ${MICROINTERACTION.l} ease-out,
             background-color ${MICROINTERACTION.s} ease-out;
 
           &[data-activated='true'] {
             width: ${cp.controls.indicators.item.ACTIVATED.width};
-            background-color: ${colorAlphaAdapter(COLOR.g_0, 0.625)};
+            background-color: ${COLOR.g_4};
           }
         }
       }
+    }
+  }
+
+  &[data-fullscreen='true'] {
+    border-radius: 0;
+
+    .items-C .item {
+      width: 100vw;
+      height: 100vh;
     }
   }
 

@@ -77,34 +77,122 @@
             "technologies": {
               "data": [
                 {
-                  "names": ["C#"],
+                  "names": ["HTML"],
                   "icons": [
                     {
-                      "fileName": "logo-csharp.svg"
+                      "fileName": "logo-html-5.svg"
                     }
                   ],
-                  "skillLevel": 1,
+                  "skillLevel": 1
+                },
+                {
+                  "names": ["CSS"],
+                  "icons": [
+                    {
+                      "fileName": "logo-css-3.svg"
+                    }
+                  ],
+                  "skillLevel": 1
+                },
+                {
+                  "names": ["JavaScript", "TypeScript"],
+                  "icons": [
+                    {
+                      "fileName": "logo-javascript.svg"
+                    },
+                    {
+                      "fileName": "logo-typescript.svg"
+                    }
+                  ],
+                  "skillLevel": 2,
                   "technologies": [
                     {
-                      "names": ["Windows Forms"],
+                      "names": ["React"],
                       "icons": [
                         {
-                          "fileName": "logo-winforms.png"
+                          "fileName": "react.svg"
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["React Native"],
+                      "icons": [
+                        {
+                          "fileName": "react.svg"
+                        }
+                      ],
+                      "skillLevel": 0
+                    },
+                    {
+                      "names": ["styled-components"],
+                      "icons": [
+                        {
+                          "fileName": "logo-styled-components.png"
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["Emotion"],
+                      "icons": [
+                        {
+                          "fileName": "logo-styled-components.png"
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["Redux"],
+                      "icons": [
+                        {
+                          "fileName": "logo-redux.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["Zustand"],
+                      "icons": [
+                        {
+                          "fileName": "logo-redux.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["Express"],
+                      "icons": [
+                        {
+                          "fileName": "logo-express-js.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 1
+                    },
+                    {
+                      "names": ["NestJS"],
+                      "icons": [
+                        {
+                          "fileName": "logo-nest-js.svg",
+                          "invertInDarkMode": true
+                        }
+                      ],
+                      "skillLevel": 0
+                    },
+                    {
+                      "names": ["Prisma"],
+                      "icons": [
+                        {
+                          "fileName": "logo-nest-js.svg",
+                          "invertInDarkMode": true
                         }
                       ],
                       "skillLevel": 1
                     }
                   ]
-                },
-                {
-                  "names": ["Java"],
-                  "icons": [
-                    {
-                      "fileName": "logo-java.svg",
-                      "invertInDarkMode": true
-                    }
-                  ],
-                  "skillLevel": 0
                 },
                 {
                   "names": ["PHP"],
@@ -134,122 +222,26 @@
                       "fileName": "logo-python.svg"
                     }
                   ],
-                  "skillLevel": 0,
-                  "technologies": [
-                    {
-                      "names": ["Django"],
-                      "icons": [
-                        {
-                          "fileName": "logo-django.svg",
-                          "invertInDarkMode": true
-                        }
-                      ],
-                      "skillLevel": 0
-                    }
-                  ]
-                },
-                {
-                  "names": ["HTML"],
-                  "icons": [
-                    {
-                      "fileName": "logo-html-5.svg"
-                    }
-                  ],
                   "skillLevel": 1
                 },
                 {
-                  "names": ["CSS"],
+                  "names": ["C#"],
                   "icons": [
                     {
-                      "fileName": "logo-css-3.svg"
+                      "fileName": "logo-csharp.svg"
                     }
                   ],
-                  "skillLevel": 1,
-                  "technologies": [
-                    {
-                      "names": ["Sass"],
-                      "icons": [
-                        {
-                          "fileName": "logo-sass.svg"
-                        }
-                      ],
-                      "skillLevel": 0
-                    }
-                  ]
+                  "skillLevel": 0
                 },
                 {
-                  "names": ["JavaScript", "TypeScript"],
+                  "names": ["Java"],
                   "icons": [
                     {
-                      "fileName": "logo-javascript.svg"
-                    },
-                    {
-                      "fileName": "logo-typescript.svg"
+                      "fileName": "logo-java.svg",
+                      "invertInDarkMode": true
                     }
                   ],
-                  "skillLevel": 2,
-                  "technologies": [
-                    {
-                      "names": ["React"],
-                      "icons": [
-                        {
-                          "fileName": "react.svg"
-                        }
-                      ],
-                      "skillLevel": 1,
-                      "technologies": [
-                        {
-                          "names": ["styled-components"],
-                          "icons": [
-                            {
-                              "fileName": "logo-styled-components.png"
-                            }
-                          ],
-                          "skillLevel": 2
-                        },
-                        {
-                          "names": ["Redux"],
-                          "icons": [
-                            {
-                              "fileName": "logo-redux.svg",
-                              "invertInDarkMode": true
-                            }
-                          ],
-                          "skillLevel": 0
-                        }
-                      ]
-                    },
-                    {
-                      "names": ["Express"],
-                      "icons": [
-                        {
-                          "fileName": "logo-express-js.svg",
-                          "invertInDarkMode": true
-                        }
-                      ],
-                      "skillLevel": 1
-                    },
-                    {
-                      "names": ["NestJS"],
-                      "icons": [
-                        {
-                          "fileName": "logo-nest-js.svg",
-                          "invertInDarkMode": true
-                        }
-                      ],
-                      "skillLevel": 0
-                    },
-                    {
-                      "names": ["RxJS"],
-                      "icons": [
-                        {
-                          "fileName": "logo-rxjs.svg",
-                          "invertInDarkMode": true
-                        }
-                      ],
-                      "skillLevel": 0
-                    }
-                  ]
+                  "skillLevel": 0
                 },
                 {
                   "names": ["SQL"],
@@ -277,7 +269,16 @@
                           "fileName": "logo-microsoft-sql-server.svg"
                         }
                       ],
-                      "skillLevel": 1
+                      "skillLevel": 0
+                    },
+                    {
+                      "names": ["MySQL"],
+                      "icons": [
+                        {
+                          "fileName": "logo-microsoft-sql-server.svg"
+                        }
+                      ],
+                      "skillLevel": 0
                     },
                     {
                       "names": ["PostgreSQL"],
@@ -389,7 +390,7 @@
               },
               {
                 "title": "Hydro Saving",
-                "types": ["Mobile App"],
+                "types": ["Mobile App", "Data Base"],
                 "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
                 "technologies": [
                   "TypeScript",
@@ -472,15 +473,19 @@
     },
     "resume": {
       "buttonTitle": "Currículum",
-      "pageTitle": "Currículum"
+      "pageTitle": "Currículum",
+      "data": {
+        "desc": ["Mi currículum", "un resumen"]
+      }
     },
     "notFound": {
       "pageTitle": "Página no encontrada",
       "data": {
-        "description": [
-          "Error 404,",
+        "desc": [
+          "Error 404",
           "página no encontrada",
-          "Creo que no es el programador que buscas."
+          "Creo que no es el programador que buscas.",
+          "El error 404 es un mensaje que se muestra cuando intentas acceder a una página que no existe en un sitio web. Esto puede suceder por varias razones, como una URL incorrecta o una página que ha sido eliminada."
         ]
       }
     }

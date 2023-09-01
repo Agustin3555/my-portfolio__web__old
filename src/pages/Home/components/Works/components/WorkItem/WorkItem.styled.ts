@@ -154,6 +154,10 @@ export const Component = styled.div`
       gap: ${FONT_SIZE.s};
       flex-wrap: wrap;
       color: ${COLOR.b};
+
+      .item {
+        font-size: ${FONT_SIZE.xs};
+      }
     }
 
     .links {

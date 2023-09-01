@@ -5,8 +5,8 @@ const Home = () => {
   return (
     <Page>
       <About />
-      <Skills />
       <Works />
+      <Skills />
       <Education />
       <Contact />
       {/* <MetalCuriosities /> */}

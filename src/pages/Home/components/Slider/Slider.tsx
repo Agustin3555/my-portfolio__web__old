@@ -1,5 +1,5 @@
 import * as SliderStyled from './Slider.styled'
-import { Icon, Image } from '@/components'
+import { GlassButton, Icon, Image } from '@/components'
 import { useCallback, useRef, useState } from 'react'
 import { HandlingClass, asClassName, sleep } from '@/tools'
 import { FONT_SIZE, MICROINTERACTION, getCSSVarValue } from '@/styles'
@@ -34,7 +34,7 @@ const Slider = ({
     itemsContainer.style.transform = `translateX(-${childWidth}px)`
     itemsContainer.style.transition = `transform ${getCSSVarValue(
       MICROINTERACTION.l
-    )} ease-in-out`
+    )} ease-out`
 
     await sleep(1000)
 
@@ -73,19 +73,21 @@ const Slider = ({
     itemsContainer.style.transform = 'initial'
     itemsContainer.style.transition = `transform ${getCSSVarValue(
       MICROINTERACTION.l
-    )} ease-in-out`
+    )} ease-out`
 
     await sleep(1000)
 
     setChanging(false)
   }, [])
 
-  const { elementRef, isFullscreen, toggleFullscreen } = useFullscreen()
+  const { elementRef, isFullscreen, toggleFullscreen } =
+    useFullscreen<HTMLDivElement>()
 
   return (
     <SliderStyled.Component
       className={asClassName(handlingClass)}
       ref={elementRef}
+      data-fullscreen={isFullscreen}
       p={SliderStyled.adapter(style)}
     >
       <div className="items-C" ref={itemsContainerRef}>
@@ -98,35 +100,19 @@ const Slider = ({
           />
         ))}
       </div>
-      <div className="controls">
-        <button
-          className="control-button left"
-          title="Retroceder"
-          onClick={changing ? undefined : leftButtonHandleClick}
-        >
-          <Icon
-            handlingClass="button-icon"
-            iconName="fa-solid fa-chevron-left"
-            style={{ size: FONT_SIZE.m }}
-          />
-        </button>
-        <div className="mid">
-          <div className="toggle-fullscreen">
-            <div className="background" />
-            <button
-              className="button"
-              onClick={async () => await toggleFullscreen()}
-            >
-              {isFullscreen ? (
-                <Icon
-                  iconName="fa-solid fa-compress"
-                  style={{ size: FONT_SIZE.m }}
-                />
-              ) : (
-                <Icon iconName="fa-solid fa-expand" style={{ size: FONT_SIZE.m }} />
-              )}
-            </button>
-          </div>
+      <div className="controls-C">
+        <div className="controls">
+          <GlassButton
+            title="Retroceder"
+            handleClick={changing ? undefined : leftButtonHandleClick}
+            handlingClass="control"
+          >
+            <Icon
+              handlingClass="button-icon"
+              iconName="fa-solid fa-chevron-left"
+              style={{ size: FONT_SIZE.xs }}
+            />
+          </GlassButton>
           <div className="indicators">
             {imgs.map((_, index) => (
               <div
@@ -136,18 +122,28 @@ const Slider = ({
               />
             ))}
           </div>
+          <GlassButton
+            title="Avanzar"
+            handleClick={changing ? undefined : rightButtonHandleClick}
+            handlingClass="control"
+          >
+            <Icon
+              handlingClass="button-icon"
+              iconName="fa-solid fa-chevron-right"
+              style={{ size: FONT_SIZE.xs }}
+            />
+          </GlassButton>
+          <GlassButton
+            title={isFullscreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
+            handlingClass="control"
+            handleClick={toggleFullscreen}
+          >
+            <Icon
+              iconName={isFullscreen ? 'fa-solid fa-compress' : 'fa-solid fa-expand'}
+              style={{ size: FONT_SIZE.xs }}
+            />
+          </GlassButton>
         </div>
-        <button
-          className="control-button right"
-          title="Avanzar"
-          onClick={changing ? undefined : rightButtonHandleClick}
-        >
-          <Icon
-            handlingClass="button-icon"
-            iconName="fa-solid fa-chevron-right"
-            style={{ size: FONT_SIZE.m }}
-          />
-        </button>
       </div>
     </SliderStyled.Component>
   )

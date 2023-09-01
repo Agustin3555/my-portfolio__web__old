@@ -78,7 +78,9 @@ const WorkItem = ({
       <div className="footer">
         <ul className="technologies">
           {technologies.map(item => (
-            <li key={item}>{item}</li>
+            <li className="item" key={item}>
+              {item}
+            </li>
           ))}
         </ul>
         <ul className="links">

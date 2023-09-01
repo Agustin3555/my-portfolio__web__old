@@ -17,7 +17,6 @@ const PADDING = `calc(${NOT_FONT_SIZE.l} * 2)`
 export const Component = styled.div`
   display: flex;
   justify-content: center;
-  min-height: 100vh;
   color: ${COLOR_BRIGHT_A};
   background-color: ${BGC_BRIGHT_A};
   overflow: hidden;
@@ -26,7 +25,9 @@ export const Component = styled.div`
   .static {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: ${STATIC_WIDTH};
+    min-height: 100vh;
     transition: width ${MICROINTERACTION.m} ease, padding ${MICROINTERACTION.m} ease;
 
     @media (max-width: ${MEDIA.m}) {
@@ -48,7 +49,7 @@ export const Component = styled.div`
     .main {
       display: flex;
       flex-direction: column;
-      gap: ${NOT_FONT_SIZE.xl};
+      gap: calc(${NOT_FONT_SIZE.l} * 2);
       padding-top: ${PADDING};
       padding-bottom: ${PADDING};
       transition: padding ${MICROINTERACTION.m} ease;
