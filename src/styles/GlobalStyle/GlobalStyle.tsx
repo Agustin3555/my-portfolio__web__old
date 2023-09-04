@@ -14,6 +14,7 @@ const SCROLLBAR_PADDING = NOT_FONT_SIZE['3xs']
 interface Provider {
   scrollbar: {
     width: Value
+    height: Value
     backgroundColor: Value
   }
 
@@ -31,9 +32,12 @@ interface Provider {
 const adapter = (darkMode: boolean): Provider => {
   const backgroundColor = darkMode ? BGC_DARK_A : BGC_BRIGHT_A
 
+  const width = `calc(${SCROLLBAR_WIDTH} + ${SCROLLBAR_PADDING} * 2)`
+
   return {
     scrollbar: {
-      width: `calc(${SCROLLBAR_WIDTH} + ${SCROLLBAR_PADDING} * 2)`,
+      width,
+      height: width,
       backgroundColor,
     },
 
@@ -67,6 +71,7 @@ const GlobalStyle = ({ darkMode }: { darkMode: boolean }) => {
 
         ::-webkit-scrollbar {
           width: ${p.scrollbar.width};
+          height: ${p.scrollbar.height};
           background-color: ${p.scrollbar.backgroundColor};
         }
 

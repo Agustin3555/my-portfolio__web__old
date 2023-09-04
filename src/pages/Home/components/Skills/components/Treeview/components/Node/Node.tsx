@@ -1,10 +1,31 @@
 import * as NodeStyled from './Node.styled'
-import { LevelBar, TechnologyNode } from '../../..'
+import { Separator } from '@/components'
+import { COLOR, NOT_FONT_SIZE } from '@/styles'
+import { useAppStore } from '@/store'
+import { useMemo } from 'react'
 
-export const Node = ({ dataNode }: { dataNode: TechnologyNode }) => {
+export interface DataNode {
+  names: string[]
+  icons: {
+    fileName: string
+    invertInBrightMode?: boolean
+    invertInDarkMode?: boolean
+  }[]
+  skillLevel: number
+  technologies?: DataNode[]
+}
+
+export const Node = ({ dataNode }: { dataNode: DataNode }) => {
+  const selectedSkillLevel = useAppStore(store => store.selectedSkillLevel)
+
+  const show = useMemo(() => {
+    if (selectedSkillLevel === undefined) return true
+    return selectedSkillLevel === dataNode.skillLevel
+  }, [selectedSkillLevel])
+
   return (
     <NodeStyled.Component>
-      <div className="technology">
+      <div className="technology" data-show={show}>
         <div className="group">
           <div className="names">
             {dataNode.names.map((name, index) => (
@@ -36,17 +57,30 @@ export const Node = ({ dataNode }: { dataNode: TechnologyNode }) => {
             ))}
           </div>
         </div>
-        <LevelBar
-          key={dataNode.names.join()}
-          segments={3}
-          value={dataNode.skillLevel + 1}
-          showLevel={false}
-        />
+        <div className="level-bar">
+          <div className="separators">
+            {Array(2)
+              .fill(undefined)
+              .map((_, index) => (
+                <Separator
+                  style={{
+                    long: NOT_FONT_SIZE['2xs'],
+                    backgroundColor: { dark: COLOR.g_10 },
+                  }}
+                  key={index}
+                />
+              ))}
+          </div>
+          <div
+            className="bar"
+            style={{ width: `${((dataNode.skillLevel + 1) / 3) * 100}%` }}
+          />
+        </div>
       </div>
       {dataNode.technologies && (
         <ul className="child-tech">
           {dataNode.technologies?.map((item, index) => (
-            <li key={item.names.join()} className="item">
+            <li className="item" key={item.names.join()}>
               <div className="child-group">
                 <div className="bullet-point-container">
                   <div className="box" />

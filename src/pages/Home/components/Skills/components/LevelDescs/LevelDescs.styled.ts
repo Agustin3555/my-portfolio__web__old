@@ -25,7 +25,7 @@ export const Component = styled.ol`
     }
   }
 
-  > :first-child {
+  > :first-of-type {
     padding-left: 0;
   }
 

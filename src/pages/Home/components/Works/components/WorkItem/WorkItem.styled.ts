@@ -123,10 +123,7 @@ export const Component = styled.div`
         .item-C {
           display: flex;
           gap: ${cp.headerGlass.header.types.itemC.gap};
-
-          .item {
-            color: ${COLOR.b};
-          }
+          align-items: center;
         }
       }
     }

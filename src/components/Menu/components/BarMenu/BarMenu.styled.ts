@@ -44,27 +44,27 @@ export const Component = styled.nav`
           }
         }
 
-        :nth-child(1) {
+        :nth-of-type(1) {
           --i: 0;
         }
 
-        :nth-child(2) {
+        :nth-of-type(2) {
           --i: 1;
         }
 
-        :nth-child(3) {
+        :nth-of-type(3) {
           --i: 2;
         }
 
-        :nth-child(4) {
+        :nth-of-type(4) {
           --i: 3;
         }
 
-        :nth-child(5) {
+        :nth-of-type(5) {
           --i: 4;
         }
 
-        :nth-child(6) {
+        :nth-of-type(6) {
           --i: 5;
         }
       }

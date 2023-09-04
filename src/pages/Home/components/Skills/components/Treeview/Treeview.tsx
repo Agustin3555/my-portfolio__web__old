@@ -1,70 +1,52 @@
-import { StylizedTreeview } from './Treeview.styled'
-import { useData } from '@/hooks'
-import { Node } from './components/Node'
-import { useState } from 'react'
+import * as TreeviewStyled from './Treeview.styled'
+import { useChildAdjustment, useData } from '@/hooks'
+import { Node } from './components'
+import { useEffect, useMemo } from 'react'
+import { GlassPanel } from '@/components'
+import { NOT_FONT_SIZE } from '@/styles'
 
-export interface TechnologyNode {
-  names: string[]
-  icons: {
-    fileName: string
-    invertInBrightMode?: boolean
-    invertInDarkMode?: boolean
-  }[]
-  skillLevel: number
-  technologies?: TechnologyNode[]
-}
+const Treeview = () => {
+  const { pages } = useData()
 
-export interface GateNode {
-  id: string
-  open?: boolean
-  nodes?: GateNode[]
-}
+  const { data } = useMemo(() => {
+    const { data } = pages.home.sections.skills.subsections.technologies
 
-/**
- * Crea un arbol con nodos "GateNode" a partir de un arbol con nodos "TechnologyNode"
- * @param treeTechnology
- * @param treeGate
- * @returns
- */
-const createTreeGate = (
-  treeTechnology: TechnologyNode | TechnologyNode[],
-  treeGate: GateNode | GateNode[]
-) => {
-  if (Array.isArray(treeTechnology)) {
-    treeTechnology.forEach(item => {
-      if (item)
-        (treeGate as GateNode[]).push(createTreeGate(item, treeGate) as GateNode)
-    })
+    return { data }
+  }, [])
 
-    return treeGate
-  }
+  const { childRef: mainRef, childWidth: mainWidth } = useChildAdjustment()
+  const { childRef: dRef, childWidth: dWidth } = useChildAdjustment()
 
-  const newNode: GateNode = {
-    id: treeTechnology.names.join(),
-  }
+  useEffect(() => {
+    // console.log([mainWidth, dWidth].join(', '))
 
-  if (treeTechnology.technologies) {
-    newNode.open = true
-    newNode.nodes = createTreeGate(treeTechnology.technologies, []) as GateNode[]
-  }
-
-  return newNode
-}
-
-export const Treeview = () => {
-  const { data } = useData().pages.home.sections.skills.subsections.technologies
-  const [treeGate, setTreeGate] = useState(() => createTreeGate(data, []))
+    if (mainWidth + 3 <= dWidth) {
+      console.log('El scroll true')
+    }
+  }, [mainWidth, dWidth])
 
   return (
-    <StylizedTreeview>
-      {data.map(item => (
-        <Node
-          key={item.names.join()}
-          dataNode={item}
-          treeGate={treeGate}
-          setTreeGate={setTreeGate}
-        />
-      ))}
-    </StylizedTreeview>
+    <TreeviewStyled.Component ref={mainRef}>
+      <div className="d" ref={dRef}>
+        <GlassPanel
+          style={{
+            padding: NOT_FONT_SIZE.s,
+            borderRadius: NOT_FONT_SIZE.xs,
+            elevation: 2,
+          }}
+          handlingClass="glass-container"
+        >
+          <div className="items">
+            {data.map(item => (
+              <li key={item.names.join()}>
+                <Node dataNode={item} />
+              </li>
+            ))}
+          </div>
+        </GlassPanel>
+      </div>
+    </TreeviewStyled.Component>
   )
 }
+
+export default Treeview

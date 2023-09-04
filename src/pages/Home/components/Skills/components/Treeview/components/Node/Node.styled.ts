@@ -59,9 +59,11 @@ export const Component = styled.div`
     padding: ${GAP};
     padding-left: ${cp.technology.paddingLeft};
     border-radius: ${NOT_FONT_SIZE['3xs']};
+    opacity: 0.25;
     transition: background-color ${MICROINTERACTION.s} ease-out,
       box-shadow ${MICROINTERACTION.s} ease-out,
-      transform ${MICROINTERACTION.s} ease-out;
+      transform ${MICROINTERACTION.s} ease-out,
+      opacity ${MICROINTERACTION.s} ease-out;
 
     :hover {
       background-color: ${COLOR.g_0};
@@ -77,6 +79,10 @@ export const Component = styled.div`
           color: ${COLOR.g_18};
         }
       }
+    }
+
+    &[data-show='true'] {
+      opacity: 1;
     }
 
     .group {
@@ -121,6 +127,31 @@ export const Component = styled.div`
             filter: grayscale(1) invert(0.75);
           }
         }
+      }
+    }
+
+    .level-bar {
+      position: relative;
+      height: ${NOT_FONT_SIZE.s};
+      border-radius: calc(${NOT_FONT_SIZE['2xs']} - ${NOT_FONT_SIZE['3xs']});
+      background-color: ${COLOR.g_2};
+      transition: background-color ${MICROINTERACTION.s} ease-out;
+
+      .bar {
+        position: relative;
+        height: 100%;
+        border-radius: calc(${NOT_FONT_SIZE['2xs']} - ${NOT_FONT_SIZE['3xs']});
+        background-color: ${COLOR.b};
+      }
+
+      .separators {
+        position: absolute;
+        right: 0.0625rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -205,6 +236,10 @@ export const Component = styled.div`
             filter: grayscale(1) invert(0.75);
           }
         }
+      }
+
+      .level-bar {
+        background-color: ${COLOR.g_15};
       }
     }
 

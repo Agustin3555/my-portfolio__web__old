@@ -1,9 +1,7 @@
 import * as SkillsStyled from './Skills.styled'
 import { useData } from '@/hooks'
-import { LevelDescs, Treeview, Treeview2 } from './components'
-import { GlassPanel } from '@/components'
+import { LevelDescs, Treeview } from './components'
 import { useMemo } from 'react'
-import { NOT_FONT_SIZE } from '@/styles'
 import Section from '../Section/Section'
 
 const Skills = () => {
@@ -21,25 +19,7 @@ const Skills = () => {
   return (
     <Section sectionKey={sectionKey} title={title}>
       <SkillsStyled.Component>
-        {/* <GlassPanel
-          style={{
-            padding: NOT_FONT_SIZE.s,
-            borderRadius: NOT_FONT_SIZE.xs,
-            elevation: 2,
-          }}
-        >
-          <Treeview />
-        </GlassPanel> */}
-        <GlassPanel
-          style={{
-            padding: NOT_FONT_SIZE.s,
-            borderRadius: NOT_FONT_SIZE.xs,
-            elevation: 2,
-          }}
-          handlingClass="tech"
-        >
-          <Treeview2 />
-        </GlassPanel>
+        <Treeview />
         <LevelDescs />
       </SkillsStyled.Component>
     </Section>

@@ -1,6 +1,6 @@
-import { ExternalNetwork, GlassPanel } from '@/components'
+import { ExternalNetwork, GlassPanel, Separator } from '@/components'
 import * as WorkItemStyled from './WorkItem.styled'
-import { NOT_FONT_SIZE } from '@/styles'
+import { COLOR, NOT_FONT_SIZE } from '@/styles'
 import { Slider } from '../../..'
 import { useMemo } from 'react'
 
@@ -67,8 +67,15 @@ const WorkItem = ({
           <ul className="types">
             {types.map((item, index) => (
               <li className="item-C" key={item}>
-                <span className="item">{item}</span>
-                {index !== types.length - 1 && <div className="separator">·</div>}
+                <h5 className="item">{item}</h5>
+                {index !== types.length - 1 && (
+                  <Separator
+                    style={{
+                      long: NOT_FONT_SIZE['2xs'],
+                      backgroundColor: { dark: COLOR.g_10 },
+                    }}
+                  />
+                )}
               </li>
             ))}
           </ul>
