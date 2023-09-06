@@ -4,12 +4,12 @@ import {
   createDarkModeSlice,
   createExternalNetworkLocationSlice,
   createFocusedSectionSlice,
-  createSelectedSkillLevelSlice,
+  createSelectedSkillLevelsSlice,
 } from './slices'
 
 export const useAppStore = create<AppStore>()((...a) => ({
   ...createDarkModeSlice(...a),
   ...createExternalNetworkLocationSlice(...a),
   ...createFocusedSectionSlice(...a),
-  ...createSelectedSkillLevelSlice(...a),
+  ...createSelectedSkillLevelsSlice(...a),
 }))

@@ -2,7 +2,6 @@ import * as NodeStyled from './Node.styled'
 import { Separator } from '@/components'
 import { COLOR, NOT_FONT_SIZE } from '@/styles'
 import { useAppStore } from '@/store'
-import { useMemo } from 'react'
 
 export interface DataNode {
   names: string[]
@@ -16,16 +15,14 @@ export interface DataNode {
 }
 
 export const Node = ({ dataNode }: { dataNode: DataNode }) => {
-  const selectedSkillLevel = useAppStore(store => store.selectedSkillLevel)
-
-  const show = useMemo(() => {
-    if (selectedSkillLevel === undefined) return true
-    return selectedSkillLevel === dataNode.skillLevel
-  }, [selectedSkillLevel])
+  const selectedSkillLevels = useAppStore(store => store.selectedSkillLevels)
 
   return (
     <NodeStyled.Component>
-      <div className="technology" data-show={show}>
+      <div
+        className="technology"
+        data-show={selectedSkillLevels[dataNode.skillLevel]}
+      >
         <div className="group">
           <div className="names">
             {dataNode.names.map((name, index) => (

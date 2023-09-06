@@ -1,7 +1,5 @@
 import styled from '@emotion/styled'
 import {
-  BGC_BRIGHT_A,
-  BGC_DARK_A,
   COLOR_BRIGHT_A,
   COLOR_DARK_A,
   MAIN_GAP,
@@ -18,9 +16,7 @@ export const Component = styled.div`
   display: flex;
   justify-content: center;
   color: ${COLOR_BRIGHT_A};
-  background-color: ${BGC_BRIGHT_A};
   overflow: hidden;
-  transition: background-color ${MICROINTERACTION.s} ease-out;
 
   .static {
     display: flex;
@@ -66,6 +62,5 @@ export const Component = styled.div`
 
   &[data-dark-mode='true'] {
     color: ${COLOR_DARK_A};
-    background-color: ${BGC_DARK_A};
   }
 `

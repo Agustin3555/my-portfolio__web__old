@@ -4,7 +4,9 @@ import { useAppStore } from '@/store'
 import { useMemo } from 'react'
 
 const LevelDescs = () => {
-  const setSelectedSkillLevel = useAppStore(store => store.setSelectedSkillLevel)
+  const skillLevelToggle = useAppStore(store => store.skillLevelToggle)
+  const selectedSkillLevels = useAppStore(store => store.selectedSkillLevels)
+
   const { pages } = useData()
 
   const { levels } = useMemo(() => {
@@ -16,15 +18,12 @@ const LevelDescs = () => {
   return (
     <LevelDescsStyled.Component>
       {levels.map((item, index) => (
-        <li
-          className="item"
-          key={index}
-          onClick={() => setSelectedSkillLevel(index)}
-          onMouseEnter={() => setSelectedSkillLevel(index)}
-          onMouseLeave={() => setSelectedSkillLevel(undefined)}
-        >
-          <span className="level-title">{item.level}</span>
-          <p className="text">{item.description}</p>
+        <li className="item" data-selected={selectedSkillLevels[index]} key={index}>
+          <div className="toggle" onClick={() => skillLevelToggle(index)}>
+            <div className="toggle-ui" />
+            <span className="level-title">{item.level}</span>
+          </div>
+          <p className="desc text">{item.description}</p>
         </li>
       ))}
     </LevelDescsStyled.Component>

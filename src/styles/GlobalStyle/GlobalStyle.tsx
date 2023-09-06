@@ -1,5 +1,5 @@
 import { Global, css } from '@emotion/react'
-import { COLOR, FONT, FONT_SIZE, NOT_FONT_SIZE } from '../enums'
+import { COLOR, FONT, FONT_SIZE, MICROINTERACTION, NOT_FONT_SIZE } from '../enums'
 import {
   BGC_BRIGHT_A,
   BGC_BRIGHT_B,
@@ -15,7 +15,6 @@ interface Provider {
   scrollbar: {
     width: Value
     height: Value
-    backgroundColor: Value
   }
 
   scrollbarThumb: {
@@ -26,6 +25,10 @@ interface Provider {
     hover: {
       borderColor: Value
     }
+  }
+
+  body: {
+    backgroundColor: Value
   }
 }
 
@@ -38,7 +41,6 @@ const adapter = (darkMode: boolean): Provider => {
     scrollbar: {
       width,
       height: width,
-      backgroundColor,
     },
 
     scrollbarThumb: {
@@ -49,6 +51,10 @@ const adapter = (darkMode: boolean): Provider => {
       hover: {
         borderColor: darkMode ? COLOR.g_12 : COLOR.g_1,
       },
+    },
+
+    body: {
+      backgroundColor,
     },
   }
 }
@@ -72,7 +78,7 @@ const GlobalStyle = ({ darkMode }: { darkMode: boolean }) => {
         ::-webkit-scrollbar {
           width: ${p.scrollbar.width};
           height: ${p.scrollbar.height};
-          background-color: ${p.scrollbar.backgroundColor};
+          background-color: transparent;
         }
 
         ::-webkit-scrollbar-thumb {
@@ -84,6 +90,11 @@ const GlobalStyle = ({ darkMode }: { darkMode: boolean }) => {
           :hover {
             background-color: ${p.scrollbarThumb.hover.borderColor};
           }
+        }
+
+        body {
+          background-color: ${p.body.backgroundColor};
+          transition: background-color ${MICROINTERACTION.s} ease-out;
         }
 
         :is(h1, h2, h3, h4),
