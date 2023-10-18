@@ -1,6 +1,7 @@
 import {
   COLOR,
   FONT_SIZE,
+  MEDIA,
   MICROINTERACTION,
   NOT_FONT_SIZE,
   Value,
@@ -72,7 +73,7 @@ export const Component = styled.div`
 
       .group {
         .icons .icon {
-          filter: initial;
+          filter: initial !important;
         }
 
         .names {
@@ -250,6 +251,19 @@ export const Component = styled.div`
 
       .child-group .bullet-point-container .box {
         border-color: ${COLOR.g_11};
+      }
+    }
+  }
+
+  @media (max-width: ${MEDIA.xs}) {
+    .technology {
+      grid-template-columns: none;
+      grid-template-rows: auto auto;
+      align-items: end;
+
+      .level-bar {
+        justify-self: end;
+        width: calc(${NOT_FONT_SIZE.s} * 3);
       }
     }
   }

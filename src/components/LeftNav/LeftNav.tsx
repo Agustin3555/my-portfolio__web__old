@@ -3,7 +3,7 @@ import * as LeftNavStyled from './LeftNav.styled'
 import { useData } from '@/hooks'
 import Separator from '../Separator/Separator'
 import ToggleDarkMode from '../ToggleDarkMode/ToggleDarkMode'
-import ExternalNetwork from '../ExternalNetwork/ExternalNetwork'
+import ExternalLink from '../ExternalLink/ExternalLink'
 import { LOCATION, useAppStore } from '@/store'
 import { css } from '@emotion/react'
 
@@ -15,7 +15,7 @@ const LeftNav = () => {
     <LeftNavStyled.Component>
       <nav className="nav" data-show={location === LOCATION.leftNav}>
         {externalNetwork.map((item, index) => (
-          <ExternalNetwork
+          <ExternalLink
             key={item.title}
             iconName={item.iconName}
             url={item.url}

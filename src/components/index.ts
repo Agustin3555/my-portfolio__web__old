@@ -1,7 +1,7 @@
 export { default as AnimateState } from './AnimateState/AnimateState'
 export { default as ButtonSection } from './ButtonSection/ButtonSection'
 export * from './DelayedComponent/DelayedComponent'
-export { default as ExternalNetwork } from './ExternalNetwork/ExternalNetwork'
+export { default as ExternalLink } from './ExternalLink/ExternalLink'
 export { default as Footer } from './Footer/Footer'
 export { default as GlassButton } from './GlassButton/GlassButton'
 export { default as GlassPanel } from './GlassPanel/GlassPanel'

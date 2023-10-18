@@ -6,59 +6,31 @@ import {
   Value,
   shadowAdapter,
 } from '@/styles'
-import { SerializedStyles } from '@emotion/react'
 import styled from '@emotion/styled'
 
-const SIZE = NOT_FONT_SIZE.m
 const BORDER_RADIUS = NOT_FONT_SIZE['3xs']
 
 export interface Props {
-  styled?: SerializedStyles
+  size?: NOT_FONT_SIZE.m | NOT_FONT_SIZE.xs
 }
 
 interface Provider {
-  styled?: Value
-}
-
-export const adapter = ({ styled }: Props): Provider => {
-  return {
-    styled,
-  }
-}
-
-interface ConstProvider {
   width: Value
   height: Value
-  borderRadius: Value
-
-  glassRefleccion: {
-    borderRadius: Value
-  }
-
-  content: {
-    borderRadius: Value
-  }
 }
 
-const cp: ConstProvider = {
-  width: SIZE,
-  height: SIZE,
-  borderRadius: BORDER_RADIUS,
-
-  glassRefleccion: {
-    borderRadius: BORDER_RADIUS,
-  },
-
-  content: {
-    borderRadius: BORDER_RADIUS,
-  },
+export const adapter = ({ size = NOT_FONT_SIZE.m }: Props): Provider => {
+  return {
+    width: size,
+    height: size,
+  }
 }
 
 export const Component = styled.a<{ p: Provider }>`
   position: relative;
-  width: ${cp.width};
-  height: ${cp.height};
-  border-radius: ${cp.borderRadius};
+  width: ${({ p }) => p.width};
+  height: ${({ p }) => p.height};
+  border-radius: ${BORDER_RADIUS};
   text-decoration: none;
   box-shadow: ${shadowAdapter(2)};
   transition: box-shadow ${MICROINTERACTION.xs} ease-out,
@@ -77,7 +49,7 @@ export const Component = styled.a<{ p: Provider }>`
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: ${cp.glassRefleccion.borderRadius};
+    border-radius: ${BORDER_RADIUS};
     ${GLASS_SET.refleccion}
   }
 
@@ -88,9 +60,7 @@ export const Component = styled.a<{ p: Provider }>`
     align-items: center;
     width: 100%;
     height: 100%;
-    border-radius: ${cp.content.borderRadius};
+    border-radius: ${BORDER_RADIUS};
     ${GLASS_SET.content}
   }
-
-  ${({ p }) => p.styled};
 `

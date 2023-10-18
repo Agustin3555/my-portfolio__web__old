@@ -1,13 +1,13 @@
 import { StateCreator } from 'zustand'
 import {
   DarkModeSlice,
-  ExternalNetworkLocationSlice,
+  ExternalLinkLocationSlice,
   FocusedSectionSlice,
   SelectedSkillLevelsSlice,
 } from './slices'
 
 export type AppStore = DarkModeSlice &
-  ExternalNetworkLocationSlice &
+  ExternalLinkLocationSlice &
   FocusedSectionSlice &
   SelectedSkillLevelsSlice
 

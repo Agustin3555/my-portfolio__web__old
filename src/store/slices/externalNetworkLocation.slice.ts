@@ -5,16 +5,16 @@ export enum LOCATION {
   leftNav,
 }
 
-export interface ExternalNetworkLocationSlice {
+export interface ExternalLinkLocationSlice {
   externalNetworkLocation: LOCATION
-  setExternalNetworkLocation: (location: LOCATION) => void
+  setExternalLinkLocation: (location: LOCATION) => void
 }
 
-export const createExternalNetworkLocationSlice: Slice<
-  ExternalNetworkLocationSlice
+export const createExternalLinkLocationSlice: Slice<
+  ExternalLinkLocationSlice
 > = set => ({
   externalNetworkLocation: LOCATION.about,
-  setExternalNetworkLocation: location => {
+  setExternalLinkLocation: location => {
     set(() => {
       return { externalNetworkLocation: location }
     })

@@ -3,7 +3,7 @@ import { useData, useOnScreen } from '@/hooks'
 import { Slider } from './components'
 import { useMemo } from 'react'
 import Section from '../Section/Section'
-import { ExternalNetwork } from '@/components'
+import { ExternalLink } from '@/components'
 import { LOCATION, useAppStore } from '@/store'
 import { css } from '@emotion/react'
 import { NOT_FONT_SIZE, getCSSVarValue } from '@/styles'
@@ -22,7 +22,7 @@ const About = () => {
   }, [])
 
   const location = useAppStore(store => store.externalNetworkLocation)
-  const setLocation = useAppStore(store => store.setExternalNetworkLocation)
+  const setLocation = useAppStore(store => store.setExternalLinkLocation)
 
   const rootMargin = useMemo(() => {
     let value = getCSSVarValue(ROOT_MARGIN)
@@ -60,7 +60,7 @@ const About = () => {
               .slice()
               .reverse()
               .map((item, index) => (
-                <ExternalNetwork
+                <ExternalLink
                   key={item.title}
                   iconName={item.iconName}
                   url={item.url}

@@ -1,4 +1,4 @@
-import { ExternalNetwork, GlassPanel } from '@/components'
+import { ExternalLink, GlassPanel } from '@/components'
 import * as EducationItemStyled from './EducationItem.styled'
 import { useMemo } from 'react'
 import { NOT_FONT_SIZE } from '@/styles'
@@ -72,7 +72,7 @@ const EducationItem = ({
           ))}
         </div>
         <div className="links">
-          <ExternalNetwork
+          <ExternalLink
             url={url}
             title="Más información"
             iconName="fa-solid fa-square-arrow-up-right"

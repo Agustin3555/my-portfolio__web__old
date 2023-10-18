@@ -1,4 +1,4 @@
-import { ExternalNetwork, GlassPanel, Separator } from '@/components'
+import { ExternalLink, GlassPanel, Separator } from '@/components'
 import * as WorkItemStyled from './WorkItem.styled'
 import { COLOR, NOT_FONT_SIZE } from '@/styles'
 import { Slider } from '../../..'
@@ -93,7 +93,7 @@ const WorkItem = ({
         <ul className="links">
           {externalLinks.map(item => (
             <li key={item.title}>
-              <ExternalNetwork {...item} />
+              <ExternalLink {...item} />
             </li>
           ))}
         </ul>

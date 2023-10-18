@@ -1,10 +1,5 @@
 import * as HamburgerMenuStyled from './HamburgerMenu.styled'
-import {
-  ButtonSection,
-  ExternalNetwork,
-  Separator,
-  ToggleDarkMode,
-} from '@/components'
+import { ButtonSection, ExternalLink, Separator, ToggleDarkMode } from '@/components'
 import { useChildAdjustment, useData } from '@/hooks'
 import { COLOR_BRIGHT_A, COLOR_DARK_A } from '@/styles'
 import { useCallback, useState } from 'react'
@@ -70,7 +65,7 @@ const HamburgerMenu = ({ scrollDirection }: { scrollDirection: boolean }) => {
                 />
                 <nav className="nav nav--external-network">
                   {externalNetwork.map(item => (
-                    <ExternalNetwork
+                    <ExternalLink
                       key={item.title}
                       iconName={item.iconName}
                       url={item.url}

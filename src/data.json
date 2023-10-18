@@ -317,7 +317,7 @@
               {
                 "title": "Goicoechea Admin",
                 "types": ["Web App", "API", "Data Base"],
-                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta. Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "desc": "Esta herramienta funciona como un eficiente sistema de gestión de inventario para el negocio Goicoechea. Está desarrollada como una SPA y opera completamente en tiempo real. Permite un control detallado de las ventas, así como el monitoreo constante del stock de productos y una gestión efectiva de los registros de los empleados. La solución contribuye significativamente a optimizar las operaciones del negocio, mejorando la eficiencia y facilitando la toma de decisiones estratégicas.",
                 "technologies": [
                   "TypeScript",
                   "React",
@@ -340,7 +340,7 @@
               {
                 "title": "Agustín Lovera",
                 "types": ["Web"],
-                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "desc": "Diseñé y desarrollé mi propio portafolio desde cero, aprovechando mis habilidades en diseño y la asistencia de ChatGPT para la elaboración de su descripción. El sitio web refleja mi estilo único y presenta de manera efectiva mi experiencia y habilidades como programador.",
                 "technologies": ["TypeScript", "React", "Zustand", "Emotion"],
                 "imgs": [
                   { "src": "goicoechea-admin/myself.jpg", "alt": "" },
@@ -353,7 +353,7 @@
               {
                 "title": "Sequence",
                 "types": ["Web"],
-                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "desc": "...",
                 "technologies": ["TypeScript", "React", "Zustand", "Emotion"],
                 "imgs": [
                   { "src": "goicoechea-admin/myself.jpg", "alt": "" },
@@ -372,7 +372,7 @@
               {
                 "title": "Kalimar",
                 "types": ["Web"],
-                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "desc": "Colaboré en el proyecto de desarrollo y diseño de un catálogo de propiedades para la inmobiliaria Kalimar. Junto a mi equipo, aportamos estilo y funcionalidades clave al sitio web. Esta experiencia destacó mis habilidades en diseño y desarrollo, contribuyendo al éxito del proyecto.",
                 "technologies": ["HTML", "CSS", "JavaScript"],
                 "imgs": [
                   { "src": "goicoechea-admin/myself.jpg", "alt": "" },
@@ -391,7 +391,7 @@
               {
                 "title": "Hydro Saving",
                 "types": ["Mobile App", "Data Base"],
-                "desc": "Soy un apasionado programador junior especializado en desarrollo web. Mi formación universitaria me brindó sólidos conocimientos en el lado del servidor, mientras que en el lado del cliente he adquirido habilidades a través de cursos y de forma autodidacta.",
+                "desc": "Ayudé en un proyecto de fin de curso de estudiantes de secundaria con el objetivo de promover el cuidado del agua. Desarrollé una aplicación que se integra con un dispositivo conectado al tanque y a la red domiciliaria, permitiendo el monitoreo del consumo de agua en tiempo real. Los datos son almacenados en un historial y se utilizan para generar estadísticas y métricas del consumo a lo largo del tiempo.",
                 "technologies": [
                   "TypeScript",
                   "React Native",
